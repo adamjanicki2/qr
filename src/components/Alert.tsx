@@ -1,4 +1,4 @@
-import useAlert from "src/hooks/useAlert";
+import { useAlert } from "src/hooks";
 import "src/components/alert.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

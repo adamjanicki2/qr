@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Turn as Hamburger } from "hamburger-react";
 import "src/components/nav.css";
+import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "src/img/logo.svg";
 
 type NavlinkProps = {
   to: string;
@@ -13,22 +15,23 @@ const Nav = () => {
 
   const Navlink = ({ to, children }: NavlinkProps) => (
     <li className="navlink-li">
-      <a className="navlink" href={to} onClick={closeMenu}>
+      <Link className="navlink" to={to} onClick={closeMenu}>
         <span>{children}</span>
-      </a>
+      </Link>
     </li>
   );
 
   return (
     <>
       <nav
-        className={`flex items-center justify-between w-100 bg-near-black white nav pv2 ph4`}
+        className={`flex items-center justify-between w-100 bg-yellow nav pv2 ph4`}
         id="nav"
       >
         <div className="flex items-center justify-between bar-container">
-          <a className="nav-title" href="#home">
-            React skeleton
-          </a>
+          <Link className="nav-title flex items-center" to="/">
+            <Logo height="40px" width="40px" />
+            <span className="desktop ml2">QR Scanner</span>
+          </Link>
           <div className="mobile">
             <Hamburger
               toggled={open}
@@ -43,7 +46,9 @@ const Nav = () => {
           className={`flex items-center desktop link-container`}
           style={{ display: open ? "flex" : undefined }}
         >
-          <Navlink to="#home">Home</Navlink>
+          <Navlink to="/">Home</Navlink>
+          <Navlink to="/scan">Scan</Navlink>
+          <Navlink to="/lego">Lego</Navlink>
         </ul>
       </nav>
       <div className="nav-padding" />
