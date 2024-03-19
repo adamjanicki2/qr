@@ -57,8 +57,8 @@ const Scanner = ({
     <video
       ref={videoEl}
       style={{
-        width: show ? "90vw" : 0,
-        height: show ? "70vh" : 0,
+        width: "90vw",
+        height: "70vh",
         display: show ? undefined : "none",
         ...style,
       }}

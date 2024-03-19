@@ -29,9 +29,6 @@
   .nav {
     flex-direction: column;
   }
-  .nav-open {
-    height: 100vh;
-  }
   .link-container {
     width: 100%;
     align-items: start;

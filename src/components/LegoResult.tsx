@@ -22,7 +22,7 @@ const LegoResult = ({ code }: Props) => {
   minifigure ||= NOT_FOUND;
   return (
     <div
-      className="flex flex-column ba b--moon-gray br3 bg-white pa3 mb2"
+      className="flex flex-column br3 ph3 mb2"
       style={{ maxWidth: "min(90vw, 350px)" }}
     >
       <img
@@ -31,9 +31,9 @@ const LegoResult = ({ code }: Props) => {
         style={{
           objectFit: "cover",
           objectPosition: "center",
-          maxHeight: "50vh",
+          maxHeight: "45vh",
         }}
-        className="br3"
+        className="br3 ba b--moon-gray"
       />
       <h1 className="f3 fw7 mb1">{minifigure.name}</h1>
       <p className="mv0 f5 fw4" style={{ lineHeight: 1.3 }}>

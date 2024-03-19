@@ -41,7 +41,7 @@ const DefaultScan = () => {
         {lastGeneratedValue && (
           <>
             {" "}
-            <h2 className="mv1 f3 fw6">Most recent QR...</h2>
+            <h2 className="mv1 f6 fw5">Most recent QR...</h2>
             <QrResult header="QR">{lastGeneratedValue}</QrResult>
           </>
         )}

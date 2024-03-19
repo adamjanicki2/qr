@@ -14,7 +14,7 @@ const Home = () => {
       <QRCode
         className="mh3"
         value="https://adamjanicki.xyz/qr-scanner"
-        size={300}
+        size={256}
       />
     </div>
   );

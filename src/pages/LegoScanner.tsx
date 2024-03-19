@@ -25,7 +25,7 @@ const LegoScan = () => {
       </Link>
       {result && !show && (
         <>
-          <h2 className="mv1 f3 fw6">Most recent figure...</h2>
+          <h2 className="mv1 f6 fw5">Most recent figure...</h2>
           <LegoResult code={result} />
         </>
       )}

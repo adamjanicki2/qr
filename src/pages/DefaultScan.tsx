@@ -22,7 +22,7 @@ const DefaultScan = () => {
       <h1 className="page-title-text tc mb0">Scanner</h1>
       {result && !show && (
         <>
-          <h2 className="mv1 f3 fw6">Most recent scan...</h2>
+          <h2 className="mv1 f6 fw5">Most recent scan...</h2>
           <QrResult header="Scan Result">{result}</QrResult>
         </>
       )}

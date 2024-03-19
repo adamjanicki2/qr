@@ -15,7 +15,7 @@ const QrResult = ({ children, header = "Result" }: Props) => {
       style={{ maxWidth: 324 }}
     >
       <h1 className="f3 fw6 w-100">{header}</h1>
-      <QRCode value={children} size={300} />
+      <QRCode value={children} size={256} />
       {isUrl(children) ? (
         <a
           className={CLASS + " default-link"}
