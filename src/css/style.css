@@ -3,6 +3,9 @@
 :root {
   --breakpoint: 768px;
   --yellow: #f6c70c;
+  --moon-gray: #ccc;
+  --dark-gray: #555;
+  --primary: #000;
 }
 
 body {
