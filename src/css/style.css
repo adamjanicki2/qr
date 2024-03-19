@@ -6,6 +6,7 @@
   --moon-gray: #ccc;
   --dark-gray: #555;
   --primary: #000;
+  --link: #c29c05;
 }
 
 body {
@@ -41,7 +42,7 @@ a {
 }
 
 .default-link {
-  color: var(--yellow);
+  color: var(--link);
 }
 
 .default-link:hover {

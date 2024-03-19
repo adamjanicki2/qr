@@ -16,7 +16,7 @@ const Scanner = ({
   onScan,
   onError,
   stopOnScan = true,
-  className,
+  className = "",
   style = {},
 }: Props) => {
   const scanner = useRef<QrScanner>();
@@ -67,7 +67,7 @@ const Scanner = ({
         display: show ? undefined : "none",
         ...style,
       }}
-      className={className}
+      className={`br3 ${className}`}
     />
   );
 };

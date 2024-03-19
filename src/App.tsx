@@ -6,6 +6,7 @@ import Nav from "src/components/Nav";
 import DefaultScan from "src/pages/DefaultScan";
 import Lego from "src/pages/Lego";
 import Generate from "src/pages/Generate";
+import LegoScan from "src/pages/LegoScanner";
 
 // TODO: build your app!
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
       <Route path="/scan" element={<DefaultScan />} />
       <Route path="/lego" element={<Lego />} />
       <Route path="/generate" element={<Generate />} />
+      <Route path="/lego/scan" element={<LegoScan />} />
     </Routes>
     <Alert />
     <Footer />
