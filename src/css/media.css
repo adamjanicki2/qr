@@ -4,7 +4,7 @@
 
 .home {
   flex-direction: row-reverse;
-  padding: 5rem;
+  padding: 5rem 0;
 }
 
 @media only screen and (max-width: 768px) {
@@ -16,6 +16,6 @@
   }
   .home {
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1.5rem 0;
   }
 }

@@ -28,3 +28,13 @@ a {
 .bg-yellow {
   background-color: var(--yellow);
 }
+
+.description-text {
+  font-size: calc(1.5rem + 0.2vw);
+  font-weight: 400;
+}
+
+.home-title {
+  font-weight: 700;
+  font-size: calc(3rem + 1.9vw);
+}

@@ -5,9 +5,9 @@ const Home = () => {
   useDocumentTitle("QR Scanner");
   return (
     <div className="flex flex-wrap home justify-center items-center">
-      <div className="mh3 flex flex-column">
-        <h1 className="f-subheadline tc fw8 mv0">QR Scanner</h1>
-        <p className="f3 fw5 tc">
+      <div className="mh3 flex flex-column items-center">
+        <h1 className="home-title tc mv0 tc">QR Scanner</h1>
+        <p className="home-description tc">
           Welcome to QR Scanner, where you can scan and generate QRs!
         </p>
       </div>
