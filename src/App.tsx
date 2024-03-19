@@ -4,9 +4,10 @@ import Footer from "src/components/Footer";
 import Home from "src/pages/Home";
 import Nav from "src/components/Nav";
 import DefaultScan from "src/pages/DefaultScan";
-import Lego from "src/pages/Lego";
+import About from "src/pages/About";
 import Generate from "src/pages/Generate";
 import LegoScan from "src/pages/LegoScanner";
+import LegoHelp from "src/pages/LegoHelp";
 
 // TODO: build your app!
 const App = () => (
@@ -15,9 +16,10 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/scan" element={<DefaultScan />} />
-      <Route path="/lego" element={<Lego />} />
+      <Route path="/about" element={<About />} />
       <Route path="/generate" element={<Generate />} />
-      <Route path="/lego/scan" element={<LegoScan />} />
+      <Route path="/lego" element={<LegoScan />} />
+      <Route path="/lego/help" element={<LegoHelp />} />
     </Routes>
     <Alert />
     <Footer />

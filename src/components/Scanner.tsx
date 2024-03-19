@@ -50,12 +50,7 @@ const Scanner = ({
     } else {
       stopScanner();
     }
-    const videoNode = videoEl?.current;
-    return () => {
-      if (!videoNode) {
-        stopScanner();
-      }
-    };
+    return stopScanner;
   }, [show, startScanner, stopScanner]);
 
   return (

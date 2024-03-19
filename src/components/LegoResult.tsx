@@ -35,9 +35,11 @@ const LegoResult = ({ code }: Props) => {
         }}
         className="br3"
       />
-      <h1 className="f3 fw7">{minifigure.name}</h1>
-      <p className="mv0 f5 fw4">
+      <h1 className="f3 fw7 mb1">{minifigure.name}</h1>
+      <p className="mv0 f5 fw4" style={{ lineHeight: 1.3 }}>
         {!notFound ? seriesLabel(minifigure.series) : notFoundText(code)}
+        <br />
+        <em>({code})</em>
       </p>
     </div>
   );

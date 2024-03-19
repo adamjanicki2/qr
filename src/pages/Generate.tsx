@@ -2,12 +2,17 @@ import { useState } from "react";
 import QrResult from "src/components/QrResult";
 import Button from "src/components/basic/Button";
 import Input from "src/components/basic/Input";
-import { useDocumentTitle } from "src/hooks";
+import { useCache, useDocumentTitle } from "src/hooks";
+
+const cacheKey = "last-generated";
 
 const DefaultScan = () => {
   useDocumentTitle("Generate QR Code");
   const [value, setValue] = useState("");
-  const [lastGeneratedValue, setLastGeneratedValue] = useState("");
+  const { get, set } = useCache<string>();
+
+  const [lastGeneratedValue, setLastGeneratedValue] = useState(get(cacheKey));
+
   return (
     <div className="flex flex-column items-center pb3 ph3 mh">
       <h1 className="page-title-text tc">QR Generator</h1>
@@ -26,6 +31,7 @@ const DefaultScan = () => {
           <Button
             onClick={() => {
               setLastGeneratedValue(value);
+              set(cacheKey, value);
             }}
             className="ml3"
           >
@@ -33,7 +39,11 @@ const DefaultScan = () => {
           </Button>
         </div>
         {lastGeneratedValue && (
-          <QrResult header="QR">{lastGeneratedValue}</QrResult>
+          <>
+            {" "}
+            <h2 className="mv1 f3 fw6">Most recent QR...</h2>
+            <QrResult header="QR">{lastGeneratedValue}</QrResult>
+          </>
         )}
       </div>
     </div>

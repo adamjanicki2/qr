@@ -1,4 +1,4 @@
-type Series = "series25";
+export type Series = "series25";
 export type Minifigure = {
   name: string;
   image: string;
@@ -11,7 +11,9 @@ const SERIES_LABELS: Record<Series, { year: string; label: string }> = {
 };
 
 export const seriesLabel = (series: Series) => {
-  const { label, year } = SERIES_LABELS[series];
+  const info = SERIES_LABELS[series];
+  if (!info) return series;
+  const { label, year } = info;
   return `${label} (${year})`;
 };
 

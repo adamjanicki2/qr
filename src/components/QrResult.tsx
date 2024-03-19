@@ -10,8 +10,11 @@ const CLASS = "tc f4 fw6 mv3";
 
 const QrResult = ({ children, header = "Result" }: Props) => {
   return (
-    <div className="flex flex-column ba b--moon-gray br3 ph3 mb2">
-      <h1 className="f3 fw6">{header}</h1>
+    <div
+      className="flex flex-column ba items-center b--moon-gray br3 ph3 mb2"
+      style={{ maxWidth: 324 }}
+    >
+      <h1 className="f3 fw6 w-100">{header}</h1>
       <QRCode value={children} size={300} />
       {isUrl(children) ? (
         <a

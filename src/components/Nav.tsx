@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Turn as Hamburger } from "hamburger-react";
 import "src/components/nav.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ReactComponent as Logo } from "src/img/logo.svg";
 
 type NavlinkProps = {
@@ -10,8 +10,14 @@ type NavlinkProps = {
 };
 
 const Nav = () => {
+  const { pathname } = useLocation();
+
   const [open, setOpen] = useState(false);
   const closeMenu = () => setOpen(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const Navlink = ({ to, children }: NavlinkProps) => (
     <li className="navlink-li">
@@ -45,10 +51,10 @@ const Nav = () => {
         className={`flex items-center desktop link-container`}
         style={{ display: open ? "flex" : undefined }}
       >
-        <Navlink to="/">Home</Navlink>
         <Navlink to="/scan">Scan</Navlink>
         <Navlink to="/generate">Generate</Navlink>
         <Navlink to="/lego">Lego</Navlink>
+        <Navlink to="/about">About</Navlink>
       </ul>
     </nav>
   );

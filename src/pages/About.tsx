@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from "src/hooks";
-import series25 from "src/img/series25.webp";
+import series25 from "src/img/series25-2.webp";
 
-const Lego = () => {
-  useDocumentTitle("Lego");
+const About = () => {
+  useDocumentTitle("About");
   return (
     <div className="flex flex-column items-center pb3 ph3 mh">
-      <h1 className="page-title-text tc mb0">Lego CMF Scanning</h1>
-      <Link to="/lego/scan" className="fw5 i default-link mv2">
-        Go to the Scanner
+      <h1 className="page-title-text tc mb0">About</h1>
+      <Link to="/lego" className="fw5 i default-link mv2">
+        Go to the Lego Scanner
       </Link>
       <img
         src={series25}
         alt=""
         style={{ maxHeight: "50vh" }}
-        className="mv2"
+        className="mv2 br3"
       />
       <p className="f5 fw4 w-70-90 mv2" style={{ lineHeight: 1.6 }}>
         Recently, Lego decided to switch from using plastic packaging to
@@ -33,4 +33,4 @@ const Lego = () => {
   );
 };
 
-export default Lego;
+export default About;
