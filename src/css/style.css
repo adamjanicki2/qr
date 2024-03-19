@@ -14,6 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fefef4;
 }
 
 a {
@@ -37,4 +38,21 @@ a {
 .home-title {
   font-weight: 700;
   font-size: calc(3rem + 1.9vw);
+}
+
+.default-link {
+  color: var(--yellow);
+}
+
+.default-link:hover {
+  text-decoration: underline;
+}
+
+.mh {
+  min-height: 72vh;
+}
+
+.page-title-text {
+  font-weight: 700;
+  font-size: calc(1.5rem + 1.5vw);
 }

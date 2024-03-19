@@ -9,8 +9,8 @@ const DefaultScan = () => {
   const [value, setValue] = useState("");
   const [lastGeneratedValue, setLastGeneratedValue] = useState("");
   return (
-    <div className="flex flex-column items-center pb3 ph3">
-      <h1 className="f1 tc">QR Generator</h1>
+    <div className="flex flex-column items-center pb3 ph3 mh">
+      <h1 className="page-title-text tc">QR Generator</h1>
       <div
         style={{ width: "min(420px, 90vw)" }}
         className="flex flex-column items-center"

@@ -16,7 +16,7 @@ const InnerAlert = () => {
   if (!alert) return null;
   const { type, message } = alert;
   return (
-    <div className={`flex items-center pa3 fw5 bg-white ba fade ${type}`}>
+    <div className={`flex items-center pa3 fw5 bg-white ba fade br2 ${type}`}>
       {TYPE_TO_ICON[type]}
       <p className="ma0 ml2 default-color">{message}</p>
     </div>

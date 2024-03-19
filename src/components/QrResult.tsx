@@ -1,5 +1,5 @@
 import QRCode from "react-qr-code";
-import { isUrl } from "src/util";
+import { formatUrl, isUrl } from "src/util";
 
 type Props = {
   children: string;
@@ -14,7 +14,12 @@ const QrResult = ({ children, header = "Result" }: Props) => {
       <h1 className="f3 fw6">{header}</h1>
       <QRCode value={children} size={300} />
       {isUrl(children) ? (
-        <a className={CLASS} target="_blank" rel="noreferrer" href={children}>
+        <a
+          className={CLASS + " default-link"}
+          target="_blank"
+          rel="noreferrer"
+          href={formatUrl(children)}
+        >
           {children}
         </a>
       ) : (

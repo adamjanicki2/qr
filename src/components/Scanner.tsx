@@ -47,6 +47,8 @@ const Scanner = ({
   useEffect(() => {
     if (show) {
       startScanner();
+    } else {
+      stopScanner();
     }
     const videoNode = videoEl?.current;
     return () => {
