@@ -20,7 +20,7 @@ const Scanner = ({ onScan, onError, className = "", style = {} }: Props) => {
       ref={ref}
       style={{
         width: "90vw",
-        height: "70vh",
+        height: "60vh",
         ...style,
       }}
       className={`br3 ${className}`}

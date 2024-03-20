@@ -19,13 +19,8 @@ const DefaultScan = () => {
 
   return (
     <div className="flex flex-column items-center pb3 ph3 mh">
-      <h1 className="page-title-text tc mb0">Scanner</h1>
-      {result && !show && (
-        <>
-          <h2 className="mv1 f6 fw5">Most recent scan...</h2>
-          <QrResult header="Scan Result">{result}</QrResult>
-        </>
-      )}
+      <h1 className="page-title-text tc mb2">Scanner</h1>
+      {result && !show && <QrResult header="Scan Result">{result}</QrResult>}
       {show && (
         <Scanner
           onError={() => {

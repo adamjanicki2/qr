@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { findMinifigure } from "src/cmf";
 import LegoResult from "src/components/LegoResult";
 import Scanner from "src/components/Scanner";
 import Button from "src/components/basic/Button";
@@ -23,12 +24,7 @@ const LegoScan = () => {
       <Link to="/lego/help" className="fw5 i default-link mv2">
         How to scan CMFs
       </Link>
-      {result && !show && (
-        <>
-          <h2 className="mv1 f6 fw5">Most recent figure...</h2>
-          <LegoResult code={result} />
-        </>
-      )}
+      {result && !show && <LegoResult code={result} />}
       {show && (
         <Scanner
           onError={() => {
@@ -38,6 +34,8 @@ const LegoScan = () => {
           onScan={(result) => {
             addCode(result);
             setShow(false);
+            const found = !!findMinifigure(result);
+            found && setAlert({ message: "Minifig found!", type: "success" });
           }}
         />
       )}

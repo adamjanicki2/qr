@@ -27,27 +27,26 @@ const LegoResult = ({ code }: Props) => {
   minifigure ||= NOT_FOUND;
   return (
     <div
-      className="flex flex-column br3 ph3 mb2"
-      style={{ maxWidth: "min(90vw, 350px)" }}
+      className="flex flex-column items-center br3 ph3 mb2"
+      style={{ maxWidth: "max-content" }}
     >
       <img
         src={minifigure.image}
         alt=""
         style={{
-          objectFit: "cover",
-          objectPosition: "center",
           maxHeight: "45vh",
+          width: "fit-content",
         }}
         className="br3 ba b--moon-gray"
       />
-      <h1 className="f3 fw7 mb1">
+      <h1 className="f3 fw7 mb1 tc">
         <FontAwesomeIcon
           icon={notFound ? faCircleExclamation : faCircleCheck}
           className={`mr1 ${notFound ? "red" : "green"}`}
         />
         {minifigure.name}
       </h1>
-      <p className="mv0 f5 fw5" style={{ lineHeight: 1.3 }}>
+      <p className="mv0 f5 fw5 tc" style={{ lineHeight: 1.3 }}>
         {!notFound ? seriesLabel(minifigure.series) : notFoundText(code)}
         <br />
         {!notFound && <em className="f6">({code})</em>}

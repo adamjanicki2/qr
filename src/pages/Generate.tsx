@@ -39,11 +39,7 @@ const DefaultScan = () => {
           </Button>
         </div>
         {lastGeneratedValue && (
-          <>
-            {" "}
-            <h2 className="mv1 f6 fw5">Most recent QR...</h2>
-            <QrResult header="QR">{lastGeneratedValue}</QrResult>
-          </>
+          <QrResult header="QR">{lastGeneratedValue}</QrResult>
         )}
       </div>
     </div>
