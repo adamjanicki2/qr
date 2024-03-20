@@ -1,3 +1,8 @@
+import {
+  faCircleCheck,
+  faCircleExclamation,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { findMinifigure, Minifigure, seriesLabel } from "src/cmf";
 
 type Props = {
@@ -35,11 +40,17 @@ const LegoResult = ({ code }: Props) => {
         }}
         className="br3 ba b--moon-gray"
       />
-      <h1 className="f3 fw7 mb1">{minifigure.name}</h1>
-      <p className="mv0 f5 fw4" style={{ lineHeight: 1.3 }}>
+      <h1 className="f3 fw7 mb1">
+        <FontAwesomeIcon
+          icon={notFound ? faCircleExclamation : faCircleCheck}
+          className={`mr1 ${notFound ? "red" : "green"}`}
+        />
+        {minifigure.name}
+      </h1>
+      <p className="mv0 f5 fw5" style={{ lineHeight: 1.3 }}>
         {!notFound ? seriesLabel(minifigure.series) : notFoundText(code)}
         <br />
-        <em>({code})</em>
+        {!notFound && <em className="f6">({code})</em>}
       </p>
     </div>
   );

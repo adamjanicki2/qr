@@ -29,17 +29,18 @@ const LegoScan = () => {
           <LegoResult code={result} />
         </>
       )}
-      <Scanner
-        onError={() => {
-          setAlert({ message: "Error opening your camera", type: "error" });
-          setShow(false);
-        }}
-        onScan={(result) => {
-          addCode(result);
-          setShow(false);
-        }}
-        show={show}
-      />
+      {show && (
+        <Scanner
+          onError={() => {
+            setAlert({ message: "Error opening your camera", type: "error" });
+            setShow(false);
+          }}
+          onScan={(result) => {
+            addCode(result);
+            setShow(false);
+          }}
+        />
+      )}
       <Button
         onClick={() => {
           setShow(!show);

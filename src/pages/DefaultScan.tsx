@@ -26,17 +26,18 @@ const DefaultScan = () => {
           <QrResult header="Scan Result">{result}</QrResult>
         </>
       )}
-      <Scanner
-        onError={() => {
-          setAlert({ message: "Error opening your camera", type: "error" });
-          setShow(false);
-        }}
-        onScan={(result) => {
-          setShow(false);
-          addCode(result);
-        }}
-        show={show}
-      />
+      {show && (
+        <Scanner
+          onError={() => {
+            setAlert({ message: "Error opening your camera", type: "error" });
+            setShow(false);
+          }}
+          onScan={(result) => {
+            setShow(false);
+            addCode(result);
+          }}
+        />
+      )}
       <Button
         onClick={() => {
           setShow(!show);
