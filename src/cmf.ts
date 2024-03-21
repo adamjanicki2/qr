@@ -20,12 +20,12 @@ export const seriesLabel = (series: Series) => {
 export const SERIES: Record<Series, Minifigure[]> = {
   series25: [
     {
-      name: "Film Noir Detective",
+      name: "Noir Detective",
       image: "https://images.brickset.com/sets/large/71045-1.jpg?202312020345",
       codes: ["6471965", "6472866"],
     },
     {
-      name: "E-Sports Gamer",
+      name: "Gamer",
       image: "https://images.brickset.com/sets/large/71045-2.jpg?202312020345",
       codes: ["6471969", "6472870"],
     },
@@ -35,27 +35,27 @@ export const SERIES: Record<Series, Minifigure[]> = {
       codes: ["6471970", "6472871"],
     },
     {
-      name: "Sprinter",
+      name: "Para-athlete",
       image: "https://images.brickset.com/sets/large/71045-4.jpg?202312020345",
       codes: ["6471966", "6472867"],
     },
     {
-      name: "Goatherd",
+      name: "Goat Guy",
       image: "https://images.brickset.com/sets/large/71045-5.jpg?202312020345",
       codes: ["6471962", "6472863"],
     },
     {
-      name: "Mushroom Sprite",
+      name: "Mushroom Girl",
       image: "https://images.brickset.com/sets/large/71045-6.jpg?202312020345",
       codes: ["6471961", "6472862"],
     },
     {
-      name: "Fitness Instructor",
+      name: "Crossfitter",
       image: "https://images.brickset.com/sets/large/71045-7.jpg?202312020345",
       codes: ["6471960", "6472861"],
     },
     {
-      name: "Triceratops Costume Fan",
+      name: "Triceratops Guy",
       image: "https://images.brickset.com/sets/large/71045-8.jpg?202312020345",
       codes: ["6471968", "6472869"],
     },
@@ -70,12 +70,12 @@ export const SERIES: Record<Series, Minifigure[]> = {
       codes: ["6471964", "6472865"],
     },
     {
-      name: "Fierce Barbarian",
+      name: "Barbarian",
       image: "https://images.brickset.com/sets/large/71045-11.jpg?202312020345",
       codes: ["6471959", "6472860"],
     },
     {
-      name: "Pet Groomer",
+      name: "Dog Groomer",
       image: "https://images.brickset.com/sets/large/71045-12.jpg?202312020345",
       codes: ["6471967", "6472868"],
     },

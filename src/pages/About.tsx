@@ -23,11 +23,17 @@ const About = () => {
         figures lie inside each package like we used to. But fans have
         discovered that new boxed-packages include a QR code that can be
         uniquely mapped to a figure, meaning we can once again beat the system
-        and identify which figure lies in a given mystery box. So I decided to
-        extend this QR scanner site to be able to scan a QR code, and tell you
-        which minifigure lies inside the box. This will only work for series 25
-        currently, but will hopefully be able to extend to series to come in the
-        future.
+        and identify which figure lies in a given mystery box.{" "}
+        <em>
+          (And in fact, I just learned that these codes aren't even QR codes at
+          all, they're actually a special variant of code called a data matrix,
+          but I'll probably keep referring to them as QR codes to keep it
+          simple).
+        </em>{" "}
+        So I decided to extend this QR scanner site to be able to scan a QR
+        code, and tell you which minifigure lies inside the box. This will only
+        work for series 25 currently, but will hopefully be able to extend to
+        series to come in the future.
       </p>
     </div>
   );

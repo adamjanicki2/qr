@@ -35,7 +35,6 @@ const LegoResult = ({ code }: Props) => {
         alt=""
         style={{
           maxHeight: "45vh",
-          width: "fit-content",
         }}
         className="br3 ba b--moon-gray"
       />
