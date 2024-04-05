@@ -65,3 +65,7 @@ a {
 .maintenance-title {
   font-size: calc(1.5rem + 1.25vw);
 }
+
+.wb {
+  word-break: break-all;
+}

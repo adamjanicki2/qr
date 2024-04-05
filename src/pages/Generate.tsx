@@ -34,6 +34,7 @@ const DefaultScan = () => {
               set(cacheKey, value);
             }}
             className="ml3"
+            disabled={!value}
           >
             Generate
           </Button>

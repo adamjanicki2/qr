@@ -6,7 +6,7 @@ type Props = {
   header?: string;
 };
 
-const CLASS = "tc f4 fw6 mv3";
+const CLASS = "tc f4 fw6 mv3 wb";
 
 const QrResult = ({ children, header = "Result" }: Props) => {
   return (
