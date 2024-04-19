@@ -33,10 +33,15 @@ const LegoHelp = () => {
         <Link to="/lego/image" className="default-link">
           here
         </Link>
-        . After scanning a QR code, the site can identify which figure is inside
-        the box, again, with high probability. So far, this only works for
-        series 25, but you can check below for all current series we support, it
-        should be up to date!
+        .
+        <br />
+        <br />
+        The default scanning method is uploading an image. This is because the
+        codes are too small to work well with the in-browser video camera. After
+        scanning a QR code, the site can identify which figure is inside the
+        box, again, with high probability. So far, this only works for series
+        25, but you can check below for all current series we support, it should
+        be up to date!
         <ul>
           {allSeries.map((s) => (
             <li key={s}>{seriesLabel(s as Series)}</li>
