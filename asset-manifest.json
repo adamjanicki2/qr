@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/qr/static/css/main.190810a3.css",
-    "main.js": "/qr/static/js/main.cb85abe6.js",
+    "main.js": "/qr/static/js/main.3d633cdb.js",
     "static/media/series25.webp": "/qr/static/media/series25.38926f21ce10fb5ddbaa.webp",
     "static/media/series25-2.webp": "/qr/static/media/series25-2.7a23eecf073b5b0573a1.webp",
     "static/media/ace.webp": "/qr/static/media/ace.64a811dc1302fdc5a081.webp",
@@ -11,6 +11,6 @@
   },
   "entrypoints": [
     "static/css/main.190810a3.css",
-    "static/js/main.cb85abe6.js"
+    "static/js/main.3d633cdb.js"
   ]
 }
