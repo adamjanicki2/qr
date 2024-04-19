@@ -12,7 +12,7 @@ const Home = () => {
           Welcome to QR Scanner, where you can scan and generate QRs!
         </p>
         <div className="flex justify-around items-center w-100 mv2 home-description">
-          <Link className="default-link i" to="/lego">
+          <Link className="default-link i" to="/lego/image">
             Scan Lego CMFs
           </Link>
           <Link className="default-link i" to="/scan">

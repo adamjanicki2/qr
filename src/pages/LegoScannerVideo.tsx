@@ -6,9 +6,9 @@ import Scanner from "src/components/Scanner";
 import Button from "src/components/basic/Button";
 import { useAlert, useCache, useDocumentTitle } from "src/hooks";
 
-const cacheKey = "cmf-code";
+const cacheKey = "cmf-code-video";
 
-const LegoScan = () => {
+const LegoScanVideo = () => {
   const { get, set } = useCache<string>();
   useDocumentTitle("Scan CMF QR Code");
   const { setAlert } = useAlert();
@@ -20,10 +20,15 @@ const LegoScan = () => {
 
   return (
     <div className="flex flex-column items-center pb3 ph3 mh">
-      <h1 className="page-title-text tc mb0">CMF Scanner</h1>
-      <Link to="/lego/help" className="fw5 i default-link mv2">
-        How to scan CMFs
-      </Link>
+      <h1 className="page-title-text tc mb0">CMF Scanner - Camera</h1>
+      <div className="flex items-center justify-center">
+        <Link to="/lego/help" className="fw5 i default-link ma2">
+          How to scan CMFs
+        </Link>
+        <Link to="/lego/image" className="fw5 i default-link ma2">
+          Image upload
+        </Link>
+      </div>
       {result && !show && <LegoResult code={result} />}
       {show && (
         <Scanner
@@ -51,4 +56,4 @@ const LegoScan = () => {
   );
 };
 
-export default LegoScan;
+export default LegoScanVideo;

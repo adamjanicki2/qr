@@ -53,7 +53,7 @@ const Nav = () => {
       >
         <Navlink to="/scan">Scan</Navlink>
         <Navlink to="/generate">Generate</Navlink>
-        <Navlink to="/lego">Lego</Navlink>
+        <Navlink to="/lego/image">Lego</Navlink>
         <Navlink to="/about">About</Navlink>
       </ul>
     </nav>
