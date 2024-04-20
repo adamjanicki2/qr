@@ -1,5 +1,7 @@
 import { BrowserMultiFormatReader } from "@zxing/browser";
 import { DecodeHintType, BarcodeFormat } from "@zxing/library";
+import heic2any from "heic2any";
+import Resizer from "react-image-file-resizer";
 
 const hints = new Map([
   [
@@ -12,38 +14,58 @@ const reader = new BrowserMultiFormatReader();
 reader.setHints(hints);
 
 // decodes the image and returns the result as a string
-export function decodeImage(canvas: HTMLCanvasElement): string | null {
+export async function decodeImage(src: string): Promise<string | null> {
   try {
-    return reader.decodeFromCanvas(canvas).getText();
+    return (await reader.decodeFromImageUrl(src)).getText();
   } catch (e) {
-    console.error(e);
+    // console.error(e);
     return null;
   }
 }
 
-export async function readFileIntoImage(
-  file: File
-): Promise<HTMLCanvasElement> {
-  return new Promise((resolve, reject) => {
+async function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve) => {
     const reader = new FileReader();
     reader.onload = function (event) {
-      const img = new Image();
-      img.onload = function () {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-        resolve(canvas);
-      };
-      img.src = event.target.result as string;
-    };
-    reader.onerror = function (error) {
-      // Reject the promise if there's an error
-      reject(error);
+      resolve(event.target.result as string);
     };
     reader.readAsDataURL(file);
   });
+}
+
+function resizeFile(file: File): Promise<string> {
+  return new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      file,
+      900,
+      900,
+      "PNG",
+      100,
+      0,
+      (uri: string) => resolve(uri),
+      "base64"
+    );
+  });
+}
+
+function isHeic(file: File): boolean {
+  return file.type.startsWith("image/hei");
+}
+
+export async function convertFile(file: File): Promise<string> {
+  if (isHeic(file)) {
+    const blob = (await heic2any({
+      blob: file,
+      quality: 1,
+      toType: "image/png",
+    })) as Blob;
+    file = new File([blob], file.name, { type: "image/png" });
+  }
+  // resize file if it's above 2MB
+  if (file.size > 2000000) {
+    return await resizeFile(file);
+  }
+  return await fileToBase64(file);
 }
 
 export function isUrl(url: string): boolean {

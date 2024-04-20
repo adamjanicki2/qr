@@ -2,15 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { findMinifigure } from "src/cmf";
 import LegoResult from "src/components/LegoResult";
+import { UnstyledLoader } from "src/components/Loader";
 import { FileUpload } from "src/components/basic/Button";
 import { useAlert, useDocumentTitle } from "src/hooks";
-import { readFileIntoImage } from "src/util";
-import { decodeImage } from "src/util";
+import { convertFile, decodeImage } from "src/util";
 
 const LegoScanImage = () => {
   const { setAlert } = useAlert();
   useDocumentTitle("Upload CMF QR Code");
-  const [result, setResult] = useState<string | null>(null);
+  const [result, setResult] = useState<string | null>();
+  const [scanning, setScanning] = useState(false);
 
   return (
     <div className="flex flex-column items-center pb3 ph3 mh">
@@ -23,16 +24,21 @@ const LegoScanImage = () => {
           Camera scanner
         </Link>
       </div>
+      {result !== undefined && !scanning && <LegoResult code={result} />}
+      {scanning && (
+        <div className="flex items-center pa2">
+          <UnstyledLoader size="1.5em" />
+          <p className="ml2 f5 fw4">Scanning...</p>
+        </div>
+      )}
 
-      {result && <LegoResult code={result} />}
       <FileUpload
-        accept="image/*"
+        accept="image/png, image/jpeg, image/jpg, image/webp"
         onImageChange={async (file) => {
-          const imageData = await readFileIntoImage(file);
-          const code = decodeImage(imageData);
-          if (code === null) {
-            return setAlert({ message: "Error reading code!", type: "error" });
-          }
+          setScanning(true);
+          const base64Url = await convertFile(file);
+          const code = await decodeImage(base64Url);
+          setScanning(false);
           setResult(code);
           const found = !!findMinifigure(code);
           found && setAlert({ message: "Minifig found!", type: "success" });

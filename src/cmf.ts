@@ -86,8 +86,8 @@ export const ALL_MINIFIGURES = Object.entries(SERIES).flatMap(
   ([series, minifigures]) => minifigures.map((mini) => ({ ...mini, series }))
 ) as readonly Minifigure[];
 
-export const findMinifigure = (code: string): Minifigure | null => {
-  // find minifigure where one of the codes starts the string code
+export const findMinifigure = (code: string | null): Minifigure | null => {
+  if (!code) return null;
   return (
     ALL_MINIFIGURES.find((mini) =>
       mini.codes.some((c) => code.startsWith(c))

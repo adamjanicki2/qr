@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { findMinifigure, Minifigure, seriesLabel } from "src/cmf";
 
 type Props = {
-  code: string;
+  code: string | null;
 };
 
 const NOT_FOUND: Minifigure = {
@@ -15,11 +15,14 @@ const NOT_FOUND: Minifigure = {
   codes: [],
 };
 
-const notFoundText = (code: string) => (
-  <>
-    Oops! We couldn't find your code: <br /> <strong>{code}</strong>
-  </>
-);
+const notFoundText = (code: string | null) =>
+  code === null ? (
+    <>No code detected</>
+  ) : (
+    <>
+      Oops! We couldn't find your code: <br /> <strong>{code}</strong>
+    </>
+  );
 
 const LegoResult = ({ code }: Props) => {
   let minifigure = findMinifigure(code);
