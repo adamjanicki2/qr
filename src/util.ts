@@ -1,6 +1,5 @@
 import { BrowserMultiFormatReader } from "@zxing/browser";
 import { DecodeHintType, BarcodeFormat } from "@zxing/library";
-import heic2any from "heic2any";
 import Resizer from "react-image-file-resizer";
 
 const hints = new Map([
@@ -48,19 +47,7 @@ function resizeFile(file: File): Promise<string> {
   });
 }
 
-function isHeic(file: File): boolean {
-  return file.type.startsWith("image/hei");
-}
-
 export async function convertFile(file: File): Promise<string> {
-  if (isHeic(file)) {
-    const blob = (await heic2any({
-      blob: file,
-      quality: 1,
-      toType: "image/png",
-    })) as Blob;
-    file = new File([blob], file.name, { type: "image/png" });
-  }
   // resize file if it's above 2MB
   if (file.size > 2000000) {
     return await resizeFile(file);
