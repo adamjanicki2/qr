@@ -1,5 +1,6 @@
 import { useZxing } from "react-zxing";
 import target from "src/img/target.svg";
+import { hints } from "src/util";
 
 type Props = {
   onScan: (result: string) => void;
@@ -14,6 +15,7 @@ const Scanner = ({ onScan, onError, className = "", style = {} }: Props) => {
       onScan(result.getText());
     },
     onError,
+    hints,
   });
 
   return (
