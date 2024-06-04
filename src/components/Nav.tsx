@@ -17,6 +17,7 @@ const Nav = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    closeMenu();
   }, [pathname]);
 
   const Navlink = ({ to, children }: NavlinkProps) => (
