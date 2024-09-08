@@ -1,7 +1,7 @@
 import { useState } from "react";
 import QrResult from "src/components/QrResult";
-import Button from "src/components/basic/Button";
-import Input from "src/components/basic/Input";
+import Button from "@adamjanicki/ui/components/Button";
+import Input from "@adamjanicki/ui/components/Input";
 import { useCache, useDocumentTitle } from "src/hooks";
 
 const cacheKey = "last-generated";

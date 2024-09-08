@@ -1,4 +1,4 @@
-export type Series = "series25" | "series26";
+export type Series = "series25" | "series26" | "dnd";
 export type Minifigure = {
   name: string;
   image: string;
@@ -9,6 +9,7 @@ export type Minifigure = {
 const SERIES_LABELS: Record<Series, { year: string; label: string }> = {
   series25: { label: "Series 25", year: "2024" },
   series26: { label: "Series 26", year: "2024" },
+  dnd: { label: "Dungeons & Dragons", year: "2024" },
 };
 
 export const seriesLabel = (series: Series) => {
@@ -141,6 +142,68 @@ export const SERIES: Record<Series, Minifigure[]> = {
       name: "Blacktron Mutant",
       image: "https://images.brickset.com/sets/large/71046-12.jpg?202403271143",
       codes: ["6484917", "6484685"],
+    },
+  ],
+  dnd: [
+    {
+      name: "Dwarf Barbarian",
+      codes: ["6506754", "6502839", "6506740"],
+      image: "https://images.brickset.com/news/112352_Dungeons%203.jpg",
+    },
+    {
+      name: "Gith Warlock",
+      codes: ["6506757", "6502842", "6506743"],
+      image: "https://images.brickset.com/news/112352_Dungeons%208.jpg",
+    },
+    {
+      name: "Tiefling Sorcerer",
+      codes: ["6506751", "6502836", "6506737"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2013.jpg",
+    },
+    {
+      name: "Dragonborn Paladin",
+      codes: ["6506755", "6502840", "6506741"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2018.jpg",
+    },
+    {
+      name: "Halfling Druid",
+      codes: ["6506753", "6502838"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2021.jpg",
+    },
+    {
+      name: "Aarakocra Ranger",
+      codes: ["6506756", "6502841", "6506742"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2026.jpg",
+    },
+    {
+      name: "Mind Flayer",
+      codes: ["6506758", "6502843", "6506744"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2029.jpg",
+    },
+    {
+      name: "Strahd von Zarovich",
+      codes: ["6506760", "6502845", "6506746"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2032.jpg",
+    },
+    {
+      name: "Elf Bard",
+      codes: ["6506752", "6502837", "6506738"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2035.jpg",
+    },
+    {
+      name: "The Lady of Pain",
+      codes: ["6506759", "6502844", "6506745"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2040.jpg",
+    },
+    {
+      name: "Szass Tam",
+      codes: ["6506762", "6502847", "6506748"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2043.jpg",
+    },
+    {
+      name: "Tasha the Witch Queen",
+      codes: ["6506761", "6502846", "6506747"],
+      image: "https://images.brickset.com/news/112352_Dungeons%2046.jpg",
     },
   ],
 };

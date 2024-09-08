@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { findMinifigure } from "src/cmf";
 import LegoResult from "src/components/LegoResult";
+import Link from "src/components/basic/Link";
 import { UnstyledLoader } from "src/components/Loader";
 import { FileUpload } from "src/components/basic/Button";
 import { useAlert, useDocumentTitle } from "src/hooks";

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Turn as Hamburger } from "hamburger-react";
 import "src/components/nav.css";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ReactComponent as Logo } from "src/img/logo.svg";
+import Link from "src/components/basic/Link";
 
 type NavlinkProps = {
   to: string;

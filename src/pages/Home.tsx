@@ -1,5 +1,5 @@
+import Link from "src/components/basic/Link";
 import { useDocumentTitle } from "src/hooks";
-import { Link } from "react-router-dom";
 import ace from "src/img/ace.webp";
 
 const Home = () => {

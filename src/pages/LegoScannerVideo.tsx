@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { findMinifigure } from "src/cmf";
 import LegoResult from "src/components/LegoResult";
+import Link from "src/components/basic/Link";
 import Scanner from "src/components/Scanner";
-import Button from "src/components/basic/Button";
+import Button from "@adamjanicki/ui/components/Button";
 import { useAlert, useCache, useDocumentTitle } from "src/hooks";
 
 const cacheKey = "cmf-code-video";

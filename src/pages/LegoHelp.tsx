@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { useDocumentTitle } from "src/hooks";
 import series25 from "src/img/series25.webp";
 import { SERIES, seriesLabel, Series } from "src/cmf";
+import Link from "src/components/basic/Link";
 
 const allSeries = Object.keys(SERIES);
 

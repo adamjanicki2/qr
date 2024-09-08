@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "src/components/basic/Link";
 import { useDocumentTitle } from "src/hooks";
 import series25 from "src/img/series25-2.webp";
 
