@@ -1,4 +1,4 @@
-export type Series = "series25" | "series26" | "dnd";
+export type Series = "series25" | "series26" | "dnd" | "series27";
 export type Minifigure = {
   name: string;
   image: string;
@@ -10,6 +10,7 @@ const SERIES_LABELS: Record<Series, { year: string; label: string }> = {
   series25: { label: "Series 25", year: "2024" },
   series26: { label: "Series 26", year: "2024" },
   dnd: { label: "Dungeons & Dragons", year: "2024" },
+  series27: { label: "Series 27", year: "2025" },
 };
 
 export const seriesLabel = (series: Series) => {
@@ -204,6 +205,69 @@ export const SERIES: Record<Series, Minifigure[]> = {
       name: "Tasha the Witch Queen",
       codes: ["6506761", "6502846", "6506747"],
       image: "https://images.brickset.com/news/112352_Dungeons%2046.jpg",
+    },
+  ],
+  series27: [
+    {
+      name: "Hamster Costume Fan",
+      codes: ["6522994", "6522982", "6522667"],
+      image: "https://images.brickset.com/sets/large/71048-1.jpg",
+    },
+    {
+      name: "Wolfpack Beastmaster",
+      codes: ["6522993", "6522981", "6522666"],
+      image: "https://images.brickset.com/sets/large/71048-2.jpg",
+    },
+    {
+      name: "Jetpack Racer",
+      codes: ["6522998", "6522986", "6522671"],
+      image: "https://images.brickset.com/sets/large/71048-3.jpg",
+    },
+
+    {
+      name: "Astronomer Kid",
+      codes: ["6523001", "6522989", "6522674"],
+      image: "https://images.brickset.com/sets/large/71048-4.jpg",
+    },
+    {
+      name: "Stuffed Animal Collector",
+      codes: ["6523003", "6522991", "6522676"],
+      image: "https://images.brickset.com/sets/large/71048-5.jpg",
+    },
+    {
+      name: "Pterodactyl Girl",
+      codes: ["6523000", "6522988", "6522673"],
+      image: "https://images.brickset.com/sets/large/71048-6.jpg",
+    },
+    {
+      name: "Longboarder",
+      codes: ["6522995", "6522983", "6522668"],
+      image: "https://images.brickset.com/sets/large/71048-7.jpg",
+    },
+    {
+      name: "Baba Yaga",
+      codes: ["6523004", "6522992", "6522677"],
+      image: "https://images.brickset.com/sets/large/71048-8.jpg",
+    },
+    {
+      name: "Cupid",
+      codes: ["6522997", "6522985", "6522670"],
+      image: "https://images.brickset.com/sets/large/71048-9.jpg",
+    },
+    {
+      name: "Pirate",
+      codes: ["6522999", "6522987", "6522672"],
+      image: "https://images.brickset.com/sets/large/71048-10.jpg",
+    },
+    {
+      name: "Cat Guy",
+      codes: ["6523002", "6522990", "6522675"],
+      image: "https://images.brickset.com/sets/large/71048-11.jpg",
+    },
+    {
+      name: "Steampunk Inventor",
+      codes: ["6522996", "6522984", "6522669"],
+      image: "https://images.brickset.com/sets/large/71048-12.jpg",
     },
   ],
 };
