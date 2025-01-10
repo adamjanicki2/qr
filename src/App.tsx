@@ -7,8 +7,9 @@ import DefaultScan from "src/pages/DefaultScan";
 import About from "src/pages/About";
 import Generate from "src/pages/Generate";
 import LegoScanVideo from "src/pages/LegoScannerVideo";
-import LegoHelp from "src/pages/LegoHelp";
-import LegoScanImage from "src/pages/LegoScannerImage";
+import Gallery from "src/pages/Gallery";
+import { type Series, SERIES } from "src/cmf";
+import GalleryEntry from "src/pages/GalleryEntry";
 
 // TODO: build your app!
 const App = () => (
@@ -19,9 +20,14 @@ const App = () => (
       <Route path="/scan" element={<DefaultScan />} />
       <Route path="/about" element={<About />} />
       <Route path="/generate" element={<Generate />} />
+      <Route path="/gallery" element={<Gallery />} />
       <Route path="/lego/camera" element={<LegoScanVideo />} />
-      <Route path="/lego/image" element={<LegoScanImage />} />
-      <Route path="/lego/help" element={<LegoHelp />} />
+      {Object.keys(SERIES).map((series) => (
+        <Route
+          path={`/gallery/${series}`}
+          element={<GalleryEntry seriesKey={series as Series} />}
+        />
+      ))}
     </Routes>
     <Alert />
     <Footer />

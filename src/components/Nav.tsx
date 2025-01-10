@@ -3,7 +3,7 @@ import { Turn as Hamburger } from "hamburger-react";
 import "src/components/nav.css";
 import { useLocation } from "react-router-dom";
 import { ReactComponent as Logo } from "src/img/logo.svg";
-import Link from "src/components/basic/Link";
+import Link from "src/components/Link";
 
 type NavlinkProps = {
   to: string;
@@ -55,7 +55,8 @@ const Nav = () => {
       >
         <Navlink to="/scan">Scan</Navlink>
         <Navlink to="/generate">Generate</Navlink>
-        <Navlink to="/lego/image">Lego</Navlink>
+        <Navlink to="/lego/camera">Lego</Navlink>
+        <Navlink to="/gallery">Gallery</Navlink>
         <Navlink to="/about">About</Navlink>
       </ul>
     </nav>

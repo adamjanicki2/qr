@@ -1,4 +1,4 @@
-import Link from "src/components/basic/Link";
+import Link from "src/components/Link";
 import { useDocumentTitle } from "src/hooks";
 import series25 from "src/img/series25-2.webp";
 
@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className="flex flex-column items-center pb3 ph3 mh">
       <h1 className="page-title-text tc mb0">About</h1>
-      <Link to="/lego/image" className="fw5 i default-link mv2">
+      <Link to="/lego/camera" className="fw5 i default-link mv2">
         Go to the Lego Scanner
       </Link>
       <img
