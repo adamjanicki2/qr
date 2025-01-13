@@ -31,7 +31,7 @@ const Nav = () => {
 
   return (
     <nav
-      className={`flex items-center justify-between w-100 bg-yellow nav pv2 ph4`}
+      className="flex items-center justify-between w-100 bg-yellow nav pv2 ph4"
       id="nav"
     >
       <div className="flex items-center justify-between bar-container">

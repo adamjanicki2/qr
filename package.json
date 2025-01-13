@@ -6,6 +6,7 @@
   "dependencies": {
     "@adamjanicki/core-ui": "^1.0.3",
     "@adamjanicki/ui": "^1.4.2",
+    "@adamjanicki/ui-extended": "^1.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@zxing/browser": "^0.1.4",

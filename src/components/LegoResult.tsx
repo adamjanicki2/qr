@@ -1,3 +1,4 @@
+import { Popover } from "@adamjanicki/ui-extended";
 import {
   faCircleCheck,
   faCircleExclamation,
@@ -7,6 +8,8 @@ import { findMinifigure, Minifigure, seriesLabel } from "src/cmf";
 
 type Props = {
   code: string | null;
+  open: boolean;
+  triggerRef: React.RefObject<HTMLElement>;
 };
 
 const NOT_FOUND: Minifigure = {
@@ -24,14 +27,18 @@ const notFoundText = (code: string | null) =>
     </>
   );
 
-const LegoResult = ({ code }: Props) => {
+const LegoResult = ({ code, ...props }: Props) => {
   let minifigure = findMinifigure(code);
   const notFound = minifigure === null;
   minifigure ||= NOT_FOUND;
+
   return (
-    <div
-      className="flex flex-column items-center br3 ph3 mb2"
-      style={{ maxWidth: "max-content" }}
+    <Popover
+      {...props}
+      placement="top"
+      className="flex flex-column items-center br3 ba b--moon-gray pa3 bg-white"
+      style={{ maxWidth: "max-content", zIndex: 1000 }}
+      offset={4}
     >
       <img
         src={minifigure.image}
@@ -39,7 +46,6 @@ const LegoResult = ({ code }: Props) => {
         style={{
           maxHeight: "45vh",
         }}
-        className="br3 ba b--moon-gray"
       />
       <h1 className="f3 fw7 mb1 tc">
         <FontAwesomeIcon
@@ -50,10 +56,8 @@ const LegoResult = ({ code }: Props) => {
       </h1>
       <p className="mv0 f5 fw5 tc" style={{ lineHeight: 1.3 }}>
         {!notFound ? seriesLabel(minifigure.series) : notFoundText(code)}
-        <br />
-        {!notFound && <em className="f6">({code})</em>}
       </p>
-    </div>
+    </Popover>
   );
 };
 
