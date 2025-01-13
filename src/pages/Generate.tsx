@@ -39,9 +39,7 @@ const DefaultScan = () => {
             Generate
           </Button>
         </div>
-        {lastGeneratedValue && (
-          <QrResult header="QR">{lastGeneratedValue}</QrResult>
-        )}
+        {lastGeneratedValue && <QrResult>{lastGeneratedValue}</QrResult>}
       </div>
     </div>
   );

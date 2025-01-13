@@ -57,7 +57,7 @@ export async function convertFile(file: File): Promise<string> {
 
 export function isUrl(url: string): boolean {
   const urlRegex =
-    /^(https?:\/\/)?([\w\d]+\.)+[\w\d]{2,}(\/[\w\d]+)*\/?(\?[\w\d_-]+=[\w\d%&]+)?$/i;
+    /^(https?:\/\/)?([a-zA-Z\d-]+\.)+[a-zA-Z]{2,}(\/[\w\d\-._~:/?#[\]@!$&'()*+,;=%]*)?$/i;
   return urlRegex.test(url);
 }
 

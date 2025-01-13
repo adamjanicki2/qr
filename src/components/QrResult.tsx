@@ -3,18 +3,16 @@ import { formatUrl, isUrl } from "src/util";
 
 type Props = {
   children: string;
-  header?: string;
 };
 
-const CLASS = "tc f4 fw6 mv3 wb";
+const CLASS = "tc f4 fw6 mt3 mb0 wb";
 
-const QrResult = ({ children, header = "Result" }: Props) => {
+const QrResult = ({ children }: Props) => {
   return (
     <div
-      className="flex flex-column ba items-center b--moon-gray br3 ph3 mb2"
+      className="flex flex-column ba items-center b--moon-gray br3 pa3"
       style={{ maxWidth: 324 }}
     >
-      <h1 className="f3 fw6 w-100">{header}</h1>
       <QRCode value={children} size={256} />
       {isUrl(children) ? (
         <a

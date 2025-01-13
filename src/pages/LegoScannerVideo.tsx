@@ -18,7 +18,7 @@ const LegoScanVideo = () => {
   const addCode = (code: string) => {
     set(cacheKey, code);
     setShowResultPopover(true);
-    setTimeout(() => setShowResultPopover(false), 3000);
+    setTimeout(() => setShowResultPopover(false), 3500);
   };
 
   return (
@@ -30,10 +30,21 @@ const LegoScanVideo = () => {
       {showScanner && (
         <Scanner
           onError={() => {
-            setAlert({ message: "Error opening your camera", type: "error" });
+            setAlert({
+              message:
+                "There was an error opening your camera. Try checking your browser permissions.",
+              type: "error",
+            });
             setShowScanner(false);
           }}
-          onScan={addCode}
+          onScan={(code) => {
+            if (code === result && showResultPopover) {
+              // there's an existing timeout active for the same code
+              // don't fire anything
+              return;
+            }
+            addCode(code);
+          }}
         />
       )}
       <Button
