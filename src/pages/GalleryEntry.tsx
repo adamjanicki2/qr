@@ -34,7 +34,7 @@ const GalleryEntry = ({ seriesKey }: Props) => {
               src={m.image}
               alt=""
               style={{ maxHeight: "45vh" }}
-              vfx={{ radius: "rounded", border: true }}
+              vfx={{ radius: "rounded", border: true, maxWidth: "full" }}
             />
             <ui.h2 vfx={{ textAlign: "center", fontWeight: 7 }}>{m.name}</ui.h2>
           </Box>

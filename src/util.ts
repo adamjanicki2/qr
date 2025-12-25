@@ -16,8 +16,7 @@ reader.setHints(hints);
 export async function decodeImage(src: string): Promise<string | null> {
   try {
     return (await reader.decodeFromImageUrl(src)).getText();
-  } catch (e) {
-    console.error(e);
+  } catch {
     return null;
   }
 }

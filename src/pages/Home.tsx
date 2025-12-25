@@ -13,7 +13,7 @@ export default function Home() {
         justify: "center",
         align: "center",
         gap: "m",
-        padding: "xxl",
+        padding: "xl",
       }}
     >
       <Box vfx={{ axis: "y", align: "center" }}>
@@ -33,6 +33,7 @@ export default function Home() {
             justify: "around",
             width: "full",
             fontSize: "m",
+            gap: "s",
           }}
         >
           <Link vfx={{ italics: true }} to="/lego/camera">
