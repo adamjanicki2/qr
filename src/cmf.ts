@@ -1,4 +1,4 @@
-export type Series = "series25" | "series26" | "dnd" | "series27";
+export type Series = "series25" | "series26" | "dnd" | "series27" | "f1";
 export type Minifigure = {
   name: string;
   image: string;
@@ -11,6 +11,7 @@ const SERIES_LABELS: Record<Series, { year: string; label: string }> = {
   series26: { label: "Series 26", year: "2024" },
   dnd: { label: "Dungeons & Dragons", year: "2024" },
   series27: { label: "Series 27", year: "2025" },
+  f1: { label: "F1", year: "2025" },
 };
 
 export const seriesLabel = (series: Series) => {
@@ -268,6 +269,68 @@ export const SERIES: Record<Series, Minifigure[]> = {
       name: "Steampunk Inventor",
       codes: ["6522996", "6522984", "6522669"],
       image: "https://images.brickset.com/sets/large/71048-12.jpg",
+    },
+  ],
+  f1: [
+    {
+      name: "Red Bull",
+      image: "https://images.brickset.com/sets/large/71049-1.jpg",
+      codes: ["6538426"],
+    },
+    {
+      name: "Mercedes",
+      image: "https://images.brickset.com/sets/large/71049-2.jpg",
+      codes: ["6538427"],
+    },
+    {
+      name: "Ferrari",
+      image: "https://images.brickset.com/sets/large/71049-3.jpg",
+      codes: ["6538425"],
+    },
+    {
+      name: "McLaren",
+      image: "https://images.brickset.com/sets/large/71049-4.jpg",
+      codes: ["6538434"],
+    },
+    {
+      name: "Aston Martin",
+      image: "https://images.brickset.com/sets/large/71049-5.jpg",
+      codes: ["6538428"],
+    },
+    {
+      name: "Alpine",
+      image: "https://images.brickset.com/sets/large/71049-6.jpg",
+      codes: ["6538431"],
+    },
+    {
+      name: "Williams",
+      image: "https://images.brickset.com/sets/large/71049-7.jpg",
+      codes: ["6538432"],
+    },
+    {
+      name: "Visa Cash App",
+      image: "https://images.brickset.com/sets/large/71049-8.jpg",
+      codes: ["6538429"],
+    },
+    {
+      name: "Sauber",
+      image: "https://images.brickset.com/sets/large/71049-9.jpg",
+      codes: ["6538430"],
+    },
+    {
+      name: "Haas",
+      image: "https://images.brickset.com/sets/large/71049-10.jpg",
+      codes: ["6538433"],
+    },
+    {
+      name: "F1 Academy",
+      image: "https://images.brickset.com/sets/large/71049-11.jpg",
+      codes: ["6538436"],
+    },
+    {
+      name: "Generic",
+      image: "https://images.brickset.com/sets/large/71049-12.jpg",
+      codes: ["6538435"],
     },
   ],
 };
