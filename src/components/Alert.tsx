@@ -1,32 +1,47 @@
+import { useEffect, useState } from "react";
 import { useAlert } from "src/hooks";
-import "src/components/alert.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleCheck,
-  faCircleExclamation,
-} from "@fortawesome/free-solid-svg-icons";
+import UIAlert from "@adamjanicki/ui/components/Alert";
+import { Icon, Animated } from "@adamjanicki/ui";
 
 const TYPE_TO_ICON = {
-  success: <FontAwesomeIcon icon={faCircleCheck} className="success" />,
-  error: <FontAwesomeIcon icon={faCircleExclamation} className="error" />,
+  success: "check-circle",
+  error: "x-circle",
+  warning: "warning-circle",
+  info: "info-circle",
+  static: "minus-circle",
 } as const;
 
-const InnerAlert = () => {
-  const { alert } = useAlert();
-  if (!alert) return null;
-  const { type, message } = alert;
-  return (
-    <div className={`flex items-center pa3 fw5 bg-white ba fade br2 ${type}`}>
-      {TYPE_TO_ICON[type]}
-      <p className="ma0 ml2 default-color">{message}</p>
-    </div>
-  );
-};
-
 const Alert = () => {
-  const alert = InnerAlert();
+  const { alert } = useAlert();
+  const [cachedAlert, setCachedAlert] = useState(alert);
+
+  useEffect(() => {
+    if (alert) {
+      setCachedAlert(alert);
+    }
+  }, [alert]);
+
+  const visible = Boolean(alert);
+  const alertToRender = alert || cachedAlert;
+
   return (
-    <div className={`toast alert-${alert ? "visible" : "hidden"}`}>{alert}</div>
+    <Animated
+      visible={visible}
+      vfx={{ pos: "fixed", z: "max" }}
+      animateFrom={{ style: { opacity: 0, bottom: 16 } }}
+      animateTo={{ style: { opacity: 1, bottom: 32 } }}
+      style={{ left: "50%", transform: "translateX(-50%)" }}
+    >
+      {!alertToRender ? null : (
+        <UIAlert
+          type={alertToRender.type}
+          vfx={{ axis: "x", align: "center", gap: "s", width: "max" }}
+        >
+          <Icon size="s" icon={TYPE_TO_ICON[alertToRender.type]} />
+          {alertToRender.message}
+        </UIAlert>
+      )}
+    </Animated>
   );
 };
 

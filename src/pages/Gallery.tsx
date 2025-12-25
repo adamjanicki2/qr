@@ -1,25 +1,22 @@
-import { useDocumentTitle } from "src/hooks";
 import { SERIES, seriesLabel, Series } from "src/cmf";
 import Link from "src/components/Link";
+import Page from "src/components/Page";
+import { ui } from "@adamjanicki/ui";
 
 const allSeries = Object.keys(SERIES);
 
-const Gallery = () => {
-  useDocumentTitle("Gallery");
+export default function Gallery() {
   return (
-    <div className="flex flex-column items-center pb3 ph3 mh">
-      <h1 className="page-title-text tc mb0">Gallery</h1>
-      <ul style={{ lineHeight: 1.6 }}>
+    <Page title="Gallery">
+      <ui.ul style={{ lineHeight: 1.6 }}>
         {allSeries.map((s) => (
-          <li key={s}>
-            <Link className="fw5 i default-link" to={`/gallery/${s}`}>
+          <ui.li key={s}>
+            <Link vfx={{ italics: true }} to={`/gallery/${s}`}>
               {seriesLabel(s as Series)}
             </Link>
-          </li>
+          </ui.li>
         ))}
-      </ul>
-    </div>
+      </ui.ul>
+    </Page>
   );
-};
-
-export default Gallery;
+}

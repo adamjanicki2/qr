@@ -1,15 +1,11 @@
+import { Icon, ui } from "@adamjanicki/ui";
 import { Popover } from "@adamjanicki/ui-extended";
-import {
-  faCircleCheck,
-  faCircleExclamation,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { findMinifigure, Minifigure, seriesLabel } from "src/cmf";
 
 type Props = {
   code: string | null;
   open: boolean;
-  triggerRef: React.RefObject<HTMLElement>;
+  triggerRef: React.RefObject<HTMLElement | null>;
 };
 
 const NOT_FOUND: Minifigure = {
@@ -20,10 +16,12 @@ const NOT_FOUND: Minifigure = {
 
 const notFoundText = (code: string | null) =>
   code === null ? (
-    <>No code detected</>
+    "No code detected"
   ) : (
     <>
-      Oops! We couldn't find your code: <br /> <strong>{code}</strong>
+      Oops! We couldn't find your code:
+      <ui.br />
+      <ui.strong>{code}</ui.strong>
     </>
   );
 
@@ -33,30 +31,21 @@ const LegoResult = ({ code, ...props }: Props) => {
   minifigure ||= NOT_FOUND;
 
   return (
-    <Popover
-      {...props}
-      placement="top"
-      className="flex flex-column items-center br3 ba b--moon-gray pa3 bg-white"
-      style={{ maxWidth: "max-content", zIndex: 1000 }}
-      offset={4}
-    >
-      <img
-        src={minifigure.image}
-        alt=""
-        style={{
-          maxHeight: "45vh",
-        }}
-      />
-      <h1 className="f3 fw7 mb1 tc">
-        <FontAwesomeIcon
-          icon={notFound ? faCircleExclamation : faCircleCheck}
+    <Popover {...props} placement="top" offset={4}>
+      <ui.img src={minifigure.image} alt="" style={{ maxHeight: "45vh" }} />
+      <ui.h1 vfx={{ fontSize: "m", fontWeight: 7, textAlign: "center" }}>
+        <Icon
+          icon={notFound ? "warning-circle" : "check-circle"}
           className={`mr1 ${notFound ? "red" : "green"}`}
         />
         {minifigure.name}
-      </h1>
-      <p className="mv0 f5 fw5 tc" style={{ lineHeight: 1.3 }}>
+      </ui.h1>
+      <ui.p
+        vfx={{ margin: "none", fontWeight: 5, textAlign: "center" }}
+        style={{ lineHeight: 1.3 }}
+      >
         {!notFound ? seriesLabel(minifigure.series) : notFoundText(code)}
-      </p>
+      </ui.p>
     </Popover>
   );
 };

@@ -1,7 +1,8 @@
+import { Button } from "@adamjanicki/ui";
 import { useRef, useState } from "react";
 import LegoResult from "src/components/LegoResult";
+import Page from "src/components/Page";
 import Scanner from "src/components/Scanner";
-import Button from "@adamjanicki/ui/components/Button";
 import { useAlert, useCache, useDocumentTitle } from "src/hooks";
 
 const cacheKey = "cmf-code-video";
@@ -22,8 +23,7 @@ const LegoScanVideo = () => {
   };
 
   return (
-    <div className="flex flex-column items-center pb3 ph3 mh">
-      <h1 className="page-title-text tc mb0">CMF Scanner</h1>
+    <Page title="CMF Scanner">
       {result && showScanner && (
         <LegoResult code={result} open={showResultPopover} triggerRef={ref} />
       )}
@@ -47,14 +47,10 @@ const LegoScanVideo = () => {
           }}
         />
       )}
-      <Button
-        ref={ref}
-        onClick={() => setShowScanner(!showScanner)}
-        className="mv2"
-      >
+      <Button ref={ref} onClick={() => setShowScanner(!showScanner)}>
         {showScanner ? "Close" : "Scan"}
       </Button>
-    </div>
+    </Page>
   );
 };
 

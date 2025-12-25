@@ -1,7 +1,7 @@
+import { Input, Button, Box } from "@adamjanicki/ui";
 import { useState } from "react";
+import Page from "src/components/Page";
 import QrResult from "src/components/QrResult";
-import Button from "@adamjanicki/ui/components/Button";
-import Input from "@adamjanicki/ui/components/Input";
 import { useCache, useDocumentTitle } from "src/hooks";
 
 const cacheKey = "last-generated";
@@ -14,18 +14,17 @@ const DefaultScan = () => {
   const [lastGeneratedValue, setLastGeneratedValue] = useState(get(cacheKey));
 
   return (
-    <div className="flex flex-column items-center pb3 ph3 mh">
-      <h1 className="page-title-text tc">QR Generator</h1>
-      <div
-        style={{ width: "min(420px, 90vw)" }}
-        className="flex flex-column items-center"
+    <Page title="QR Generator">
+      <Box
+        vfx={{ axis: "y", align: "center", gap: "s" }}
+        style={{ width: "min(420px, 90%)" }}
       >
-        <div className="flex items-center w-100 mb3">
+        <Box vfx={{ axis: "x", align: "center", width: "full", gap: "s" }}>
           <Input
             value={value}
             onChange={(e) => setValue(e.target.value)}
             maxLength={1000}
-            className="w-100"
+            vfx={{ width: "full" }}
             placeholder="Enter text to encode"
           />
           <Button
@@ -33,15 +32,14 @@ const DefaultScan = () => {
               setLastGeneratedValue(value);
               set(cacheKey, value);
             }}
-            className="ml3"
             disabled={!value}
           >
             Generate
           </Button>
-        </div>
+        </Box>
         {lastGeneratedValue && <QrResult>{lastGeneratedValue}</QrResult>}
-      </div>
-    </div>
+      </Box>
+    </Page>
   );
 };
 

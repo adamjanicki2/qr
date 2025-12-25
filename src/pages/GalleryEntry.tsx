@@ -1,6 +1,8 @@
+import { Box, ui } from "@adamjanicki/ui";
 import { useDocumentTitle } from "src/hooks";
 import { SERIES, seriesLabel, Series } from "src/cmf";
 import Link from "src/components/Link";
+import Page from "src/components/Page";
 
 type Props = {
   seriesKey: Series;
@@ -11,30 +13,34 @@ const GalleryEntry = ({ seriesKey }: Props) => {
   useDocumentTitle(title);
 
   return (
-    <div className="flex flex-column items-center pb3 ph3 mh">
-      <h1 className="page-title-text tc mb0">{title}</h1>
-      <Link to="/gallery" className="fw5 i default-link mv2">
+    <Page title={title} vfx={{ gap: "s" }}>
+      <Link to="/gallery" vfx={{ italics: true }}>
         See all series
       </Link>
-      <div className="flex flex-wrap justify-center">
+      <Box vfx={{ axis: "x", wrap: true, justify: "center" }}>
         {figs.map((m) => (
-          <div
+          <Box
+            vfx={{
+              axis: "y",
+              align: "center",
+              radius: "rounded",
+              paddingX: "s",
+              maxWidth: "max",
+            }}
             className="flex flex-column items-center br3 ph3 mb2"
-            style={{ maxWidth: "max-content", flexGrow: 1 }}
+            style={{ flexGrow: 1 }}
           >
-            <img
+            <ui.img
               src={m.image}
               alt=""
-              style={{
-                maxHeight: "45vh",
-              }}
-              className="br3 ba b--moon-gray"
+              style={{ maxHeight: "45vh" }}
+              vfx={{ radius: "rounded", border: true }}
             />
-            <h1 className="f3 fw7 mb1 tc">{m.name}</h1>
-          </div>
+            <ui.h2 vfx={{ textAlign: "center", fontWeight: 7 }}>{m.name}</ui.h2>
+          </Box>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Page>
   );
 };
 
