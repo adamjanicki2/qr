@@ -1,3 +1,3 @@
 # QR Scanner
 
-Made for scanning LEGO CMFs
+QR Scanner built for scanning and identifying LEGO Collectible Minifigures

@@ -1,55 +1,41 @@
 {
   "name": "qr",
-  "version": "0.1.0",
-  "homepage": "https://adamjanicki2.github.io/qr",
+  "homepage": "https://adamjanicki.xyz/qr",
   "private": true,
+  "type": "module",
   "dependencies": {
-    "@adamjanicki/core-ui": "^1.0.3",
-    "@adamjanicki/ui": "latest",
-    "@adamjanicki/ui-extended": "^1.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@zxing/browser": "^0.1.4",
-    "@zxing/library": "^0.20.0",
-    "hamburger-react": "^2.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@adamjanicki/core-ui": "^1.0.5",
+    "@adamjanicki/ui": "^1.8.2",
+    "@adamjanicki/ui-extended": "^1.2.2",
+    "@zxing/browser": "^0.1.5",
+    "@zxing/library": "^0.21.3",
+    "react": ">=18",
+    "react-dom": ">=18",
     "react-image-file-resizer": "^0.4.8",
-    "react-qr-code": "^2.0.12",
-    "react-router-dom": "^6.22.3",
-    "react-scripts": "5.0.1",
-    "react-zxing": "^2.0.0",
-    "tachyons": "^4.12.0",
-    "typescript": "^4.9.5",
-    "zustand": "^4.4.5"
+    "react-qr-code": "^2.0.18",
+    "react-router": "^7.1.5",
+    "react-zxing": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build; cp build/index.html build/404.html",
+    "start": "vite",
+    "dev": "vite",
+    "build": "tsc --noEmit && eslint src --max-warnings=0 && vite build && cp build/index.html build/404.html",
+    "lint": "eslint src",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
-    "@types/node": "^20.6.2",
-    "@types/react": "^18.2.22",
-    "@types/react-dom": "^18.2.7",
-    "gh-pages": "^6.0.0"
+    "@types/node": "^25.0.3",
+    "@types/react-dom": ">=18",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.26.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "gh-pages": "^6.0.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0",
+    "vite": "^6.3.5",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-svgr": "^4.3.0"
   }
 }

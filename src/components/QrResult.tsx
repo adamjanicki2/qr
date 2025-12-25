@@ -1,32 +1,35 @@
+import { ui, Box } from "@adamjanicki/ui";
 import QRCode from "react-qr-code";
+import Link from "src/components/Link";
 import { formatUrl, isUrl } from "src/util";
 
 type Props = {
   children: string;
 };
 
-const CLASS = "tc f4 fw6 mt3 mb0 wb";
-
 const QrResult = ({ children }: Props) => {
   return (
-    <div
-      className="flex flex-column ba items-center b--moon-gray br3 pa3"
+    <Box
+      vfx={{
+        axis: "y",
+        align: "center",
+        radius: "rounded",
+        padding: "m",
+        border: true,
+        gap: "s",
+        fontSize: "m",
+      }}
       style={{ maxWidth: 324 }}
     >
       <QRCode value={children} size={256} />
       {isUrl(children) ? (
-        <a
-          className={CLASS + " default-link"}
-          target="_blank"
-          rel="noreferrer"
-          href={formatUrl(children)}
-        >
+        <Link external to={formatUrl(children)}>
           {children}
-        </a>
+        </Link>
       ) : (
-        <p className={CLASS}>{children}</p>
+        <ui.p vfx={{ margin: "none" }}>{children}</ui.p>
       )}
-    </div>
+    </Box>
   );
 };
 

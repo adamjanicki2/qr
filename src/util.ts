@@ -16,8 +16,7 @@ reader.setHints(hints);
 export async function decodeImage(src: string): Promise<string | null> {
   try {
     return (await reader.decodeFromImageUrl(src)).getText();
-  } catch (e) {
-    // console.error(e);
+  } catch {
     return null;
   }
 }
@@ -26,7 +25,7 @@ async function fileToBase64(file: File): Promise<string> {
   return new Promise((resolve) => {
     const reader = new FileReader();
     reader.onload = function (event) {
-      resolve(event.target.result as string);
+      resolve(event.target?.result as string);
     };
     reader.readAsDataURL(file);
   });
@@ -41,7 +40,7 @@ function resizeFile(file: File): Promise<string> {
       "PNG",
       100,
       0,
-      (uri: string) => resolve(uri),
+      (uri) => resolve(uri as string),
       "base64"
     );
   });

@@ -1,22 +1,18 @@
+import { ui } from "@adamjanicki/ui";
 import Link from "src/components/Link";
-import { useDocumentTitle } from "src/hooks";
+import Page from "src/components/Page";
 import series25 from "src/img/series25-2.webp";
 
-const About = () => {
-  useDocumentTitle("About");
+export default function About() {
   return (
-    <div className="flex flex-column items-center pb3 ph3 mh">
-      <h1 className="page-title-text tc mb0">About</h1>
-      <Link to="/lego/camera" className="fw5 i default-link mv2">
-        Go to the Lego Scanner
-      </Link>
-      <img
+    <Page title="About">
+      <Link to="/lego/camera">Go to the Lego Scanner</Link>
+      <ui.img
         src={series25}
         alt=""
-        style={{ maxHeight: "50vh" }}
-        className="mv2 br3"
+        vfx={{ radius: "rounded", marginTop: "s" }}
       />
-      <p className="f5 fw4 w-70-90 mv2" style={{ lineHeight: 1.6 }}>
+      <ui.p className="w-70-90" style={{ lineHeight: 1.6 }}>
         Recently, Lego decided to switch from using plastic packaging to
         cardboard in their collectible minifigure series. What does this mean?
         It means that gifted feelers like myself can no longer identify which
@@ -24,19 +20,17 @@ const About = () => {
         discovered that new boxed-packages include a QR code that can be
         uniquely mapped to a figure, meaning we can once again beat the system
         and identify which figure lies in a given mystery box.{" "}
-        <em>
+        <ui.em>
           (And in fact, I just learned that these codes aren't even QR codes at
           all, they're actually a special variant of code called a data matrix,
           but I'll probably keep referring to them as QR codes to keep it
           simple).
-        </em>{" "}
+        </ui.em>{" "}
         So I decided to extend this QR scanner site to be able to scan a QR
         code, and tell you which minifigure lies inside the box. This will only
         work for series 25 currently, but will hopefully be able to extend to
         series to come in the future.
-      </p>
-    </div>
+      </ui.p>
+    </Page>
   );
-};
-
-export default About;
+}

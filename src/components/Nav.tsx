@@ -1,66 +1,62 @@
 import { useEffect, useState } from "react";
-import { Turn as Hamburger } from "hamburger-react";
+import { useLocation } from "react-router";
+import { Box, TripleFade as Hamburger, ui } from "@adamjanicki/ui";
+import Link, { UnstyledLink } from "src/components/Link";
+import Logo from "src/img/logo.svg?react";
 import "src/components/nav.css";
-import { useLocation } from "react-router-dom";
-import { ReactComponent as Logo } from "src/img/logo.svg";
-import Link from "src/components/Link";
 
 type NavlinkProps = {
   to: string;
   children: React.ReactNode;
 };
 
-const Nav = () => {
+export default function Nav() {
   const { pathname } = useLocation();
-
   const [open, setOpen] = useState(false);
   const closeMenu = () => setOpen(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     closeMenu();
   }, [pathname]);
 
-  const Navlink = ({ to, children }: NavlinkProps) => (
-    <li className="navlink-li">
-      <Link className="navlink" to={to} onClick={closeMenu}>
-        <span>{children}</span>
-      </Link>
-    </li>
+  const Navlink = (props: NavlinkProps) => (
+    <Link
+      vfx={{ width: "full", fontWeight: 5, color: "default" }}
+      style={{ whiteSpace: "nowrap" }}
+      onClick={closeMenu}
+      {...props}
+    />
   );
 
   return (
-    <nav
-      className="flex items-center justify-between w-100 bg-yellow nav pv2 ph4"
-      id="nav"
-    >
-      <div className="flex items-center justify-between bar-container">
-        <Link className="nav-title flex items-center" to="/">
+    <ui.nav vfx={{ paddingY: "s", paddingX: "l" }}>
+      <Box
+        vfx={{ axis: "x", align: "center", justify: "between" }}
+        className="bar-container"
+      >
+        <UnstyledLink
+          vfx={{ axis: "x", align: "center", gap: "s" }}
+          className="nav-title"
+          to="/"
+        >
           <Logo height="40px" width="40px" />
-          <span className="desktop ml2">QR Scanner</span>
-        </Link>
-        <div className="mobile">
-          <Hamburger
-            toggled={open}
-            onToggle={() => setOpen(!open)}
-            direction="left"
-            size={24}
-            duration={0.3}
-          />
-        </div>
-      </div>
-      <ul
-        className={`flex items-center desktop link-container`}
-        style={{ display: open ? "flex" : undefined }}
+          QR Scanner
+        </UnstyledLink>
+        <Box className="mobile">
+          <Hamburger open={open} onClick={() => setOpen(!open)} />
+        </Box>
+      </Box>
+      <Box
+        className="desktop navlink-container"
+        // force display to be open on mobile when hamburger is toggled
+        style={open ? { display: "flex" } : undefined}
       >
         <Navlink to="/scan">Scan</Navlink>
         <Navlink to="/generate">Generate</Navlink>
         <Navlink to="/lego/camera">Lego</Navlink>
         <Navlink to="/gallery">Gallery</Navlink>
         <Navlink to="/about">About</Navlink>
-      </ul>
-    </nav>
+      </Box>
+    </ui.nav>
   );
-};
-
-export default Nav;
+}

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import QrResult from "src/components/QrResult";
 import Scanner from "src/components/Scanner";
-import Button from "@adamjanicki/ui/components/Button";
+import { Button } from "@adamjanicki/ui";
 import { useAlert, useCache, useDocumentTitle } from "src/hooks";
+import Page from "src/components/Page";
 
 const cacheKey = "default-code";
 
@@ -18,8 +19,7 @@ const DefaultScan = () => {
   };
 
   return (
-    <div className="flex flex-column items-center pb3 ph3 mh">
-      <h1 className="page-title-text tc mb2">Scanner</h1>
+    <Page title="Scanner" vfx={{ gap: "s" }}>
       {result && !show && <QrResult>{result}</QrResult>}
       {show && (
         <Scanner
@@ -37,11 +37,10 @@ const DefaultScan = () => {
         onClick={() => {
           setShow(!show);
         }}
-        className="mv2"
       >
         {show ? "Close" : "Scan"}
       </Button>
-    </div>
+    </Page>
   );
 };
 
