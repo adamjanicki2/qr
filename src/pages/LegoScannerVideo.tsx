@@ -19,7 +19,7 @@ const LegoScanVideo = () => {
   const addCode = (code: string) => {
     set(cacheKey, code);
     setShowResultPopover(true);
-    setTimeout(() => setShowResultPopover(false), 3500);
+    setTimeout(() => setShowResultPopover(false), 4000);
   };
 
   return (
