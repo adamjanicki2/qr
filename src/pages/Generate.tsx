@@ -1,4 +1,4 @@
-import { Input, Button, Box } from "@adamjanicki/ui";
+import { Box, Button, Input } from "@adamjanicki/ui";
 import { useState } from "react";
 import Page from "src/components/Page";
 import QrResult from "src/components/QrResult";

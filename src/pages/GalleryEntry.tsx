@@ -1,8 +1,7 @@
-import { Box, ui } from "@adamjanicki/ui";
-import { useDocumentTitle } from "src/hooks";
-import { SERIES, seriesLabel, Series } from "src/cmf";
-import Link from "src/components/Link";
+import { Box, Link, ui } from "@adamjanicki/ui";
+import { SERIES, Series, seriesLabel } from "src/cmf";
 import Page from "src/components/Page";
+import { useDocumentTitle } from "src/hooks";
 
 type Props = {
   seriesKey: Series;

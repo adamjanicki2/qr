@@ -1,5 +1,4 @@
-import { ui } from "@adamjanicki/ui";
-import Link from "src/components/Link";
+import { Link, ui } from "@adamjanicki/ui";
 import Page from "src/components/Page";
 import series25 from "src/img/series25-2.webp";
 

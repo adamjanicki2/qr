@@ -1,6 +1,5 @@
-import { ui, Box } from "@adamjanicki/ui";
+import { Box, Link, ui } from "@adamjanicki/ui";
 import QRCode from "react-qr-code";
-import Link from "src/components/Link";
 import { formatUrl, isUrl } from "src/util";
 
 type Props = {
@@ -23,7 +22,7 @@ const QrResult = ({ children }: Props) => {
     >
       <QRCode value={children} size={256} />
       {isUrl(children) ? (
-        <Link external to={formatUrl(children)}>
+        <Link newTab to={formatUrl(children)}>
           {children}
         </Link>
       ) : (

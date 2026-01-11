@@ -1,10 +1,9 @@
+import "@adamjanicki/ui/style.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "@adamjanicki/ui/style.css";
-import "@adamjanicki/ui-extended/style.css";
-import "src/css/style.css";
-import "src/css/media.css";
 import App from "src/App";
+import "src/css/media.css";
+import "src/css/style.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(

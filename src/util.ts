@@ -1,5 +1,5 @@
 import { BrowserMultiFormatReader } from "@zxing/browser";
-import { DecodeHintType, BarcodeFormat } from "@zxing/library";
+import { BarcodeFormat, DecodeHintType } from "@zxing/library";
 import Resizer from "react-image-file-resizer";
 
 export const hints = new Map([

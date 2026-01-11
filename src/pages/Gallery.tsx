@@ -1,7 +1,6 @@
-import { SERIES, seriesLabel, Series } from "src/cmf";
-import Link from "src/components/Link";
+import { Link, ui } from "@adamjanicki/ui";
+import { SERIES, Series, seriesLabel } from "src/cmf";
 import Page from "src/components/Page";
-import { ui } from "@adamjanicki/ui";
 
 const allSeries = Object.keys(SERIES);
 

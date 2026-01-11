@@ -1,7 +1,6 @@
 import { Box, ui } from "@adamjanicki/ui";
 import { useZxing } from "react-zxing";
 import target from "src/img/target.svg";
-// import { hints } from "src/util";
 
 type Props = {
   onScan: (result: string) => void;
@@ -14,7 +13,6 @@ const Scanner = ({ onScan, onError }: Props) => {
       onScan(result.getText());
     },
     onError,
-    // hints,
   });
 
   return (
