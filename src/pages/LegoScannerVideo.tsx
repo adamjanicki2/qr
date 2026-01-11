@@ -1,5 +1,5 @@
 import { Button } from "@adamjanicki/ui";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import LegoResult from "src/components/LegoResult";
 import Page from "src/components/Page";
 import Scanner from "src/components/Scanner";
@@ -8,7 +8,6 @@ import { useAlert, useCache, useDocumentTitle } from "src/hooks";
 const cacheKey = "cmf-code-video";
 
 const LegoScanVideo = () => {
-  const ref = useRef<HTMLButtonElement | null>(null);
   const { get, set } = useCache<string>();
   useDocumentTitle("Scan CMF QR Code");
   const { setAlert } = useAlert();
@@ -24,9 +23,6 @@ const LegoScanVideo = () => {
 
   return (
     <Page title="CMF Scanner">
-      {result && showScanner && (
-        <LegoResult code={result} open={showResultPopover} triggerRef={ref} />
-      )}
       {showScanner && (
         <Scanner
           onError={() => {
@@ -47,9 +43,15 @@ const LegoScanVideo = () => {
           }}
         />
       )}
-      <Button ref={ref} onClick={() => setShowScanner(!showScanner)}>
-        {showScanner ? "Close" : "Scan"}
-      </Button>
+      <LegoResult
+        code={result}
+        open={showResultPopover}
+        anchor={
+          <Button onClick={() => setShowScanner(!showScanner)}>
+            {showScanner ? "Close" : "Scan"}
+          </Button>
+        }
+      />
     </Page>
   );
 };

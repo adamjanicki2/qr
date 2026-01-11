@@ -1,11 +1,11 @@
-import { Icon, ui } from "@adamjanicki/ui";
-import { Popover } from "@adamjanicki/ui-extended";
+import { Icon, Popover, ui } from "@adamjanicki/ui";
+import { checkCircle, warningCircle } from "@adamjanicki/ui/icons";
 import { findMinifigure, Minifigure, seriesLabel } from "src/cmf";
 
 type Props = {
-  code: string | null;
+  code?: string;
   open: boolean;
-  triggerRef: React.RefObject<HTMLElement | null>;
+  anchor: React.ReactElement<any>;
 };
 
 const NOT_FOUND: Minifigure = {
@@ -14,8 +14,8 @@ const NOT_FOUND: Minifigure = {
   codes: [],
 };
 
-const notFoundText = (code: string | null) =>
-  code === null ? (
+const notFoundText = (code: string | undefined) =>
+  !code ? (
     "No code detected"
   ) : (
     <>
@@ -36,6 +36,7 @@ const LegoResult = ({ code, ...props }: Props) => {
       vfx={{ axis: "y", align: "center" }}
       placement="top"
       offset={4}
+      onClose={() => {}}
     >
       <ui.img
         src={minifigure.image}
@@ -54,7 +55,7 @@ const LegoResult = ({ code, ...props }: Props) => {
         }}
       >
         <Icon
-          icon={notFound ? "warning-circle" : "check-circle"}
+          icon={notFound ? warningCircle : checkCircle}
           className={notFound ? "red" : "green"}
         />
         {minifigure.name}

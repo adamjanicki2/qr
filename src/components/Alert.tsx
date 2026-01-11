@@ -1,14 +1,21 @@
+import { Animated, Icon } from "@adamjanicki/ui";
+import UIAlert from "@adamjanicki/ui/components/Alert";
+import {
+  checkCircle,
+  infoCircle,
+  minusCircle,
+  warningCircle,
+  xCircle,
+} from "@adamjanicki/ui/icons";
 import { useEffect, useState } from "react";
 import { useAlert } from "src/hooks";
-import UIAlert from "@adamjanicki/ui/components/Alert";
-import { Icon, Animated } from "@adamjanicki/ui";
 
 const TYPE_TO_ICON = {
-  success: "check-circle",
-  error: "x-circle",
-  warning: "warning-circle",
-  info: "info-circle",
-  static: "minus-circle",
+  success: checkCircle,
+  error: xCircle,
+  warning: warningCircle,
+  info: infoCircle,
+  static: minusCircle,
 } as const;
 
 const Alert = () => {
@@ -28,8 +35,8 @@ const Alert = () => {
     <Animated
       visible={visible}
       vfx={{ pos: "fixed", z: "max" }}
-      animateFrom={{ style: { opacity: 0, bottom: 16 } }}
-      animateTo={{ style: { opacity: 1, bottom: 32 } }}
+      from={{ opacity: 0, bottom: 16 }}
+      to={{ opacity: 1, bottom: 32 }}
       style={{ left: "50%", transform: "translateX(-50%)" }}
     >
       {!alertToRender ? null : (

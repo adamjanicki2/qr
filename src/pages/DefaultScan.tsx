@@ -1,9 +1,9 @@
+import { Button } from "@adamjanicki/ui";
 import { useState } from "react";
+import Page from "src/components/Page";
 import QrResult from "src/components/QrResult";
 import Scanner from "src/components/Scanner";
-import { Button } from "@adamjanicki/ui";
 import { useAlert, useCache, useDocumentTitle } from "src/hooks";
-import Page from "src/components/Page";
 
 const cacheKey = "default-code";
 

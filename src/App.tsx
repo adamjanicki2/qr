@@ -1,21 +1,22 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { Route, Router, Routes } from "@adamjanicki/ui";
+import { type Series, SERIES } from "src/cmf";
 import Alert from "src/components/Alert";
 import Footer from "src/components/Footer";
-import Home from "src/pages/Home";
 import Nav from "src/components/Nav";
-import DefaultScan from "src/pages/DefaultScan";
 import About from "src/pages/About";
-import Generate from "src/pages/Generate";
-import LegoScanVideo from "src/pages/LegoScannerVideo";
+import DefaultScan from "src/pages/DefaultScan";
 import Gallery from "src/pages/Gallery";
-import { type Series, SERIES } from "src/cmf";
 import GalleryEntry from "src/pages/GalleryEntry";
+import Generate from "src/pages/Generate";
+import Home from "src/pages/Home";
+import LegoScanVideo from "src/pages/LegoScannerVideo";
+import NotFound from "./pages/NotFound";
 
 // TODO: build your app!
 const App = () => (
-  <BrowserRouter basename="/qr">
+  <Router basename="/qr">
     <Nav />
-    <Routes>
+    <Routes fallback={<NotFound />}>
       <Route path="/" element={<Home />} />
       <Route path="/scan" element={<DefaultScan />} />
       <Route path="/about" element={<About />} />
@@ -31,7 +32,7 @@ const App = () => (
     </Routes>
     <Alert />
     <Footer />
-  </BrowserRouter>
+  </Router>
 );
 
 export default App;

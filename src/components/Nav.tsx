@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import { Box, TripleFade as Hamburger, ui } from "@adamjanicki/ui";
-import Link, { UnstyledLink } from "src/components/Link";
-import Logo from "src/img/logo.svg?react";
+import {
+  Box,
+  TripleFade as Hamburger,
+  Link,
+  ui,
+  UnstyledLink,
+} from "@adamjanicki/ui";
+import { useState } from "react";
 import "src/components/nav.css";
+import Logo from "src/img/logo.svg?react";
 
 type NavlinkProps = {
   to: string;
@@ -11,13 +15,8 @@ type NavlinkProps = {
 };
 
 export default function Nav() {
-  const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const closeMenu = () => setOpen(false);
-
-  useEffect(() => {
-    closeMenu();
-  }, [pathname]);
 
   const Navlink = (props: NavlinkProps) => (
     <Link
@@ -38,6 +37,7 @@ export default function Nav() {
           vfx={{ axis: "x", align: "center", gap: "s" }}
           className="nav-title"
           to="/"
+          onClick={closeMenu}
         >
           <Logo height="40px" width="40px" />
           QR Scanner
