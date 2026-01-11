@@ -4,9 +4,6 @@ import { create } from "zustand";
 const storageKey = "qr-cache";
 
 const readCache = (): Record<string, unknown> => {
-  if (typeof window === "undefined") {
-    return {};
-  }
   try {
     const raw = localStorage.getItem(storageKey);
     if (!raw) {
@@ -14,7 +11,7 @@ const readCache = (): Record<string, unknown> => {
     }
     const parsed = JSON.parse(raw);
     if (parsed && typeof parsed === "object") {
-      return parsed as Record<string, unknown>;
+      return parsed;
     }
   } catch {
     return {};
@@ -22,16 +19,8 @@ const readCache = (): Record<string, unknown> => {
   return {};
 };
 
-const writeCache = (data: Record<string, unknown>) => {
-  if (typeof window === "undefined") {
-    return;
-  }
-  try {
-    localStorage.setItem(storageKey, JSON.stringify(data));
-  } catch {
-    // Ignore quota or serialization errors.
-  }
-};
+const writeCache = (data: Record<string, unknown>) =>
+  localStorage.setItem(storageKey, JSON.stringify(data));
 
 type CacheState = {
   data: Record<string, unknown>;
