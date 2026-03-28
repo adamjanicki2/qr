@@ -1,4 +1,10 @@
-export type Series = "series25" | "series26" | "dnd" | "series27" | "f1";
+export type Series =
+  | "series25"
+  | "series26"
+  | "dnd"
+  | "series27"
+  | "f1"
+  | "series28";
 export type Minifigure = {
   name: string;
   image: string;
@@ -12,6 +18,7 @@ const SERIES_LABELS: Record<Series, { year: string; label: string }> = {
   dnd: { label: "Dungeons & Dragons", year: "2024" },
   series27: { label: "Series 27", year: "2025" },
   f1: { label: "F1", year: "2025" },
+  series28: { label: "Series 28", year: "2026" },
 };
 
 export const seriesLabel = (series: Series) => {
@@ -333,17 +340,79 @@ export const SERIES: Record<Series, Minifigure[]> = {
       codes: ["6538435"],
     },
   ],
+  series28: [
+    {
+      name: "Peacock Guy",
+      image: "https://images.brickset.com/sets/large/71051-1.jpg",
+      codes: ["6584394"],
+    },
+    {
+      name: "Cat Girl",
+      image: "https://images.brickset.com/sets/large/71051-2.jpg",
+      codes: ["6584395"],
+    },
+    {
+      name: "Goldfish Girl",
+      image: "https://images.brickset.com/sets/large/71051-3.jpg",
+      codes: ["6584392"],
+    },
+    {
+      name: "Monkey Guy",
+      image: "https://images.brickset.com/sets/large/71051-4.jpg",
+      codes: ["6584398"],
+    },
+    {
+      name: "Frog Guy",
+      image: "https://images.brickset.com/sets/large/71051-5.jpg",
+      codes: ["6584390"],
+    },
+    {
+      name: "Koala Guy",
+      image: "https://images.brickset.com/sets/large/71051-6.jpg",
+      codes: ["6584396"],
+    },
+    {
+      name: "Dalmatian Guy",
+      image: "https://images.brickset.com/sets/large/71051-7.jpg",
+      codes: ["6584391"],
+    },
+    {
+      name: "Crocodile Guy",
+      image: "https://images.brickset.com/sets/large/71051-8.jpg",
+      codes: ["6584389"],
+    },
+    {
+      name: "Dolphin Guy",
+      image: "https://images.brickset.com/sets/large/71051-9.jpg",
+      codes: ["6584397"],
+    },
+    {
+      name: "Bunny Guy",
+      image: "https://images.brickset.com/sets/large/71051-10.jpg",
+      codes: ["6584393"],
+    },
+    {
+      name: "Lion Guy",
+      image: "https://images.brickset.com/sets/large/71051-11.jpg",
+      codes: ["6584388"],
+    },
+    {
+      name: "Parrot Guy",
+      image: "https://images.brickset.com/sets/large/71051-12.jpg",
+      codes: ["6584387"],
+    },
+  ],
 };
 
 export const ALL_MINIFIGURES = Object.entries(SERIES).flatMap(
-  ([series, minifigures]) => minifigures.map((mini) => ({ ...mini, series }))
+  ([series, minifigures]) => minifigures.map((mini) => ({ ...mini, series })),
 ) as readonly Minifigure[];
 
 export const findMinifigure = (code: string | undefined): Minifigure | null => {
   if (!code) return null;
   return (
     ALL_MINIFIGURES.find((mini) =>
-      mini.codes.some((c) => code.startsWith(c))
+      mini.codes.some((c) => code.startsWith(c)),
     ) || null
   );
 };
