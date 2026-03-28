@@ -1,27 +1,37 @@
-import { create } from "zustand";
-
-const DURATION = 4500;
+import { createStore } from "@adamjanicki/store";
+import { useCallback } from "react";
 
 export type Alert = {
   message: string;
-  type: "success" | "error" | "info" | "warning" | "static";
+  type: "success" | "error" | "info" | "warning";
 };
 
 export type AlertStore = {
   alert?: Alert;
-  setAlert: (alert: Alert, duration?: number) => void;
-  timeout?: NodeJS.Timeout;
+  visible: boolean;
+  timeout?: number;
 };
 
-const useAlert = create<AlertStore>((set) => ({
-  alert: undefined,
-  timeout: undefined,
-  setAlert: (alert: Alert, duration = DURATION) =>
-    set((state) => {
-      if (state.timeout) clearTimeout(state.timeout);
-      const timeout = setTimeout(() => set({ alert: undefined }), duration);
-      return { alert, timeout };
-    }),
-}));
+const useAlertBase = createStore<AlertStore>({
+  init: { visible: false },
+});
 
-export default useAlert;
+export default function useAlert() {
+  const [alertStore, setAlertStore] = useAlertBase();
+
+  const setAlert = useCallback(
+    (alert: Alert) => {
+      setAlertStore((state) => {
+        if (state.timeout) window.clearTimeout(state.timeout);
+        const timeout = window.setTimeout(() => {
+          setAlertStore((prev) => ({ ...prev, visible: false }));
+        }, 5000);
+        return { alert, visible: true, timeout };
+      });
+    },
+    [setAlertStore],
+  );
+
+  const { alert, visible } = alertStore;
+  return [{ alert, visible }, setAlert] as const;
+}

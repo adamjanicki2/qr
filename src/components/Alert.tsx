@@ -1,55 +1,41 @@
-import { Animated, Icon } from "@adamjanicki/ui";
-import UIAlert from "@adamjanicki/ui/components/Alert";
+import { Alert as UIAlert, Animated, Icon } from "@adamjanicki/ui";
 import {
   checkCircle,
   infoCircle,
-  minusCircle,
   warningCircle,
   xCircle,
 } from "@adamjanicki/ui/icons";
-import { useEffect, useState } from "react";
-import { useAlert } from "src/hooks";
+import useAlert from "src/hooks/useAlert";
 
 const TYPE_TO_ICON = {
   success: checkCircle,
   error: xCircle,
   warning: warningCircle,
   info: infoCircle,
-  static: minusCircle,
 } as const;
 
-const Alert = () => {
-  const { alert } = useAlert();
-  const [cachedAlert, setCachedAlert] = useState(alert);
+export default function Alert() {
+  const [{ alert, visible }] = useAlert();
 
-  useEffect(() => {
-    if (alert) {
-      setCachedAlert(alert);
-    }
-  }, [alert]);
-
-  const visible = Boolean(alert);
-  const alertToRender = alert || cachedAlert;
+  const shouldShow = Boolean(alert) && visible;
 
   return (
     <Animated
-      visible={visible}
+      visible={shouldShow}
       vfx={{ pos: "fixed", z: "max" }}
       from={{ opacity: 0, bottom: 16 }}
       to={{ opacity: 1, bottom: 32 }}
       style={{ left: "50%", transform: "translateX(-50%)" }}
     >
-      {!alertToRender ? null : (
+      {!alert ? null : (
         <UIAlert
-          type={alertToRender.type}
+          type={alert.type}
           vfx={{ axis: "x", align: "center", gap: "s", width: "max" }}
         >
-          <Icon size="s" icon={TYPE_TO_ICON[alertToRender.type]} />
-          {alertToRender.message}
+          <Icon size="s" icon={TYPE_TO_ICON[alert.type]} />
+          {alert.message}
         </UIAlert>
       )}
     </Animated>
   );
-};
-
-export default Alert;
+}

@@ -377,17 +377,17 @@ export const SERIES: Record<Series, Minifigure[]> = {
       codes: ["6584391"],
     },
     {
-      name: "Crocodile Guy",
+      name: "Crocodile Girl",
       image: "https://images.brickset.com/sets/large/71051-8.jpg",
       codes: ["6584389"],
     },
     {
-      name: "Dolphin Guy",
+      name: "Dolphin Girl",
       image: "https://images.brickset.com/sets/large/71051-9.jpg",
       codes: ["6584397"],
     },
     {
-      name: "Bunny Guy",
+      name: "Bunny Girl",
       image: "https://images.brickset.com/sets/large/71051-10.jpg",
       codes: ["6584393"],
     },
@@ -397,7 +397,7 @@ export const SERIES: Record<Series, Minifigure[]> = {
       codes: ["6584388"],
     },
     {
-      name: "Parrot Guy",
+      name: "Parrot Girl",
       image: "https://images.brickset.com/sets/large/71051-12.jpg",
       codes: ["6584387"],
     },

@@ -10,7 +10,7 @@ const cacheKey = "default-code";
 const DefaultScan = () => {
   const { get, set } = useCache<string>();
   useDocumentTitle("Scan QR Code");
-  const { setAlert } = useAlert();
+  const [, setAlert] = useAlert();
   const [show, setShow] = useState(false);
 
   const result = get(cacheKey);

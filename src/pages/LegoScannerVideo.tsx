@@ -10,7 +10,7 @@ const cacheKey = "cmf-code-video";
 const LegoScanVideo = () => {
   const { get, set } = useCache<string>();
   useDocumentTitle("Scan CMF QR Code");
-  const { setAlert } = useAlert();
+  const [, setAlert] = useAlert();
   const [showScanner, setShowScanner] = useState(true);
   const result = get(cacheKey);
   const [showResultPopover, setShowResultPopover] = useState(false);
