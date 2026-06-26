@@ -4,7 +4,8 @@ export type Series =
   | "dnd"
   | "series27"
   | "f1"
-  | "series28";
+  | "series28"
+  | "series29";
 export type Minifigure = {
   name: string;
   image: string;
@@ -19,6 +20,7 @@ const SERIES_LABELS: Record<Series, { year: string; label: string }> = {
   series27: { label: "Series 27", year: "2025" },
   f1: { label: "F1", year: "2025" },
   series28: { label: "Series 28", year: "2026" },
+  series29: { label: "Series 29", year: "2026" },
 };
 
 export const seriesLabel = (series: Series) => {
@@ -400,6 +402,68 @@ export const SERIES: Record<Series, Minifigure[]> = {
       name: "Parrot Girl",
       image: "https://images.brickset.com/sets/large/71051-12.jpg",
       codes: ["6584387"],
+    },
+  ],
+  series29: [
+    {
+      name: "Robot T. rex",
+      image: "https://images.brickset.com/sets/large/71052-1.jpg",
+      codes: ["6603331", "6605257"],
+    },
+    {
+      name: "Marine Biologist",
+      image: "https://images.brickset.com/sets/large/71052-2.jpg",
+      codes: ["6603321", "6605247"],
+    },
+    {
+      name: "BIONICLE Cosplayer",
+      image: "https://images.brickset.com/sets/large/71052-3.jpg",
+      codes: ["6603325", "6605251"],
+    },
+    {
+      name: "Monster Hunter",
+      image: "https://images.brickset.com/sets/large/71052-4.jpg",
+      codes: ["6603328", "6605254"],
+    },
+    {
+      name: "Boba Cup Fan",
+      image: "https://images.brickset.com/sets/large/71052-5.jpg",
+      codes: ["6603324", "6605250"],
+    },
+    {
+      name: "Trash Monster",
+      image: "https://images.brickset.com/sets/large/71052-6.jpg",
+      codes: ["6603330", "6605256"],
+    },
+    {
+      name: "Chocolatier",
+      image: "https://images.brickset.com/sets/large/71052-7.jpg",
+      codes: ["6603323", "6605249"],
+    },
+    {
+      name: "Tuba Player",
+      image: "https://images.brickset.com/sets/large/71052-8.jpg",
+      codes: ["6603322", "6605248"],
+    },
+    {
+      name: "Soccer Goalkeeper",
+      image: "https://images.brickset.com/sets/large/71052-9.jpg",
+      codes: ["6603320", "6605246"],
+    },
+    {
+      name: "Cute Witch",
+      image: "https://images.brickset.com/sets/large/71052-10.jpg",
+      codes: ["6603329", "6605255"],
+    },
+    {
+      name: "Mysterious Ronin",
+      image: "https://images.brickset.com/sets/large/71052-11.jpg",
+      codes: ["6603327", "6605253"],
+    },
+    {
+      name: "Unicorn Elf",
+      image: "https://images.brickset.com/sets/large/71052-12.jpg",
+      codes: ["6603326", "6605252"],
     },
   ],
 };
