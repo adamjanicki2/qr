@@ -1,5 +1,5 @@
 import { Button } from "@adamjanicki/ui";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import LegoResult from "src/components/LegoResult";
 import Page from "src/components/Page";
 import Scanner from "src/components/Scanner";
@@ -15,34 +15,28 @@ const LegoScanVideo = () => {
   const result = get(cacheKey);
   const [showResultPopover, setShowResultPopover] = useState(false);
 
-  const addCode = (code: string) => {
-    set(cacheKey, code);
-    setShowResultPopover(true);
-    setTimeout(() => setShowResultPopover(false), 4000);
-  };
+  const handleScan = useCallback(
+    (code: string) => {
+      if (code === result && showResultPopover) return;
+      set(cacheKey, code);
+      setShowResultPopover(true);
+      setTimeout(() => setShowResultPopover(false), 4000);
+    },
+    [result, showResultPopover, set],
+  );
+
+  const handleError = useCallback(() => {
+    setAlert({
+      message:
+        "There was an error opening your camera. Try checking your browser permissions.",
+      type: "error",
+    });
+    setShowScanner(false);
+  }, [setAlert, setShowScanner]);
 
   return (
     <Page title="CMF Scanner">
-      {showScanner && (
-        <Scanner
-          onError={() => {
-            setAlert({
-              message:
-                "There was an error opening your camera. Try checking your browser permissions.",
-              type: "error",
-            });
-            setShowScanner(false);
-          }}
-          onScan={(code) => {
-            if (code === result && showResultPopover) {
-              // there's an existing timeout active for the same code
-              // don't fire anything
-              return;
-            }
-            addCode(code);
-          }}
-        />
-      )}
+      {showScanner && <Scanner onError={handleError} onScan={handleScan} />}
       <LegoResult
         code={result}
         open={showResultPopover}
